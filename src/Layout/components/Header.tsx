@@ -4,11 +4,9 @@ import styles from "@/styles/Layout.module.css";
 import { log } from "console";
 
 const PageHeader = () => {
-	console.log(styles);
 	const [scrollStatus, setScrollStatus] = useState(false);
 	useEffect(() => {
 		const scrollTop = (event: any) => {
-			console.log(event);
 			setScrollStatus(document.documentElement.scrollTop !== 0 ? true : false);
 		};
 		document.addEventListener("scroll", scrollTop);

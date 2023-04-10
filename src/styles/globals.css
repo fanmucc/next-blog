@@ -332,6 +332,7 @@ a {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -342,6 +343,10 @@ a {
 }
 
 @media screen and (min-width: 0px) and (max-width: 749px) {
+  #body-wrap {
+    width: 100%;
+  }
+
   #layout {
     padding: 0 30px;
     width: 100%;
@@ -349,6 +354,10 @@ a {
 }
 
 @media screen and (min-width: 750px) and (max-width: 1399px) {
+  #body-wrap {
+    width: 100%;
+  }
+  
   #layout {
     padding: 0 30px;
     width: 100%;

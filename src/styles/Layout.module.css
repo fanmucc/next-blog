@@ -80,6 +80,7 @@
   transition: 0.3s;
 }
 
+/* 滚动后样式 */
 .nav-fixed #nav {
   top: 0;
   transition: 0.3s;
@@ -101,7 +102,7 @@
   transition: 0.3s;
   top: -60px;
 }
-
+/* 标题自适应 */
 @media screen and (min-width: 0px) and (max-width: 749px) {
   #nav-group {
     padding: 0 30px;
