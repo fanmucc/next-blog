@@ -1,0 +1,131 @@
+#page-header {
+  position: relative;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease 0s;
+  height: 60px;
+}
+
+#page-header #nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 1px solid var(--blog-none);
+  transition: all 0.5s ease 0s;
+  overflow: hidden;
+}
+
+.nav-left, .nav-right {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60px;
+}
+
+.nav-menus {
+  height: 60px;
+}
+
+.nav-menus .menus_items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.nav-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.nav-left {
+  left: 30px;
+  bottom: 0;
+  top: 0;
+}
+
+.nav-right {
+  right: 30px;
+  bottom: 0;
+  top: 0;
+}
+
+#page-header .show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#nav-group {
+  position: relative;
+  width: 1400px;
+  height: 60px;
+}
+
+#page-header:not(.nav-fixed) #nav {
+  background: var(--blog-none);
+  transition: 0.3s;
+}
+
+.nav-fixed #nav {
+  top: 0;
+  transition: 0.3s;
+  box-shadow: none;
+  background: var(--blog-card-bg);
+}
+
+.nav-fixed .show {
+  outline: 1px solid var(--blog-card-border) !important;
+}
+
+/* 标题滚动 */
+#page-header:not(.nav-fixed) #nav .nav-content {
+  transition: 0.3s;
+  top: 0;
+}
+
+#page-header #nav .nav-content {
+  transition: 0.3s;
+  top: -60px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 749px) {
+  #nav-group {
+    padding: 0 30px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 1399px) {
+  #nav-group {
+    padding: 0 30px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1999px) {
+  #nav-group {
+    padding: 0 30px;
+    width: 1400px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  #nav-group {
+    padding: 0 30px;
+    width: 1400px;
+  }
+}
