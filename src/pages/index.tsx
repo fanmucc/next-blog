@@ -8,6 +8,8 @@ import { log } from "console";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
 
+import List from "../components/List";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props: AppProps) {
@@ -20,7 +22,20 @@ export default function Home(props: AppProps) {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Layout>
-				<div>我是main里面的内容</div>
+				<div
+					style={{
+						display: "grid",
+						gridTemplateColumns: "1fr 1fr;",
+						gridRowGap: "1rem",
+						gridColumnGap: "1rem",
+					}}
+				>
+					<List.ListTwo />
+					<List.ListTwo />
+					<List.ListTwo />
+					<List.ListTwo />
+					<List.ListTwo />
+				</div>
 			</Layout>
 			{/* <Head>
         <title>Create Next App</title>

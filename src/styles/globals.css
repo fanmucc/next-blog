@@ -322,9 +322,63 @@ body {
   margin: 0px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+hr {
+  position: relative;
+  margin: 2rem auto;
+  border: 2px dashed var(--hr-border);
+}
+
+.table-wrap {
+  overflow-x: scroll;
+  margin: 0px 0px 1rem;
+}
+
+table {
+  display: table;
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  empty-cells: show;
+}
+
+table thead {
+  background: rgba(153, 169, 191, 0.1);
+}
+
+table td, table th {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--light-grey);
+  vertical-align: middle;
+}
+
+::selection {
+  background: rgb(0, 121, 255);
+  color: rgb(247, 247, 247);
+}
+
+.fa-spin {
+  animation: heo-spin 1.2s linear infinite;
+}
+
+button {
+  padding: 0px;
+  outline: 0px;
+  border: none;
+  background: 0px 0px;
+  cursor: pointer;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--blog-lighttext);
 }
 
 /* 公共宽度 */
@@ -348,7 +402,6 @@ a {
   }
 
   #layout {
-    padding: 0 30px;
     width: 100%;
   }
 }
@@ -357,23 +410,20 @@ a {
   #body-wrap {
     width: 100%;
   }
-  
+
   #layout {
-    padding: 0 30px;
     width: 100%;
   }
 }
 
 @media screen and (min-width: 1400px) and (max-width: 1999px) {
   #layout {
-    padding: 0 30px;
     width: 1400px;
   }
 }
 
 @media screen and (min-width: 2000px) {
   #layout {
-    padding: 0 30px;
     width: 1400px;
   }
 }

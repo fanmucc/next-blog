@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
+import classNames from "classnames";
 import styles from "@/styles/Layout.module.css";
-import { log } from "console";
 
 const PageHeader = () => {
 	const [scrollStatus, setScrollStatus] = useState(false);
@@ -14,24 +14,33 @@ const PageHeader = () => {
 	});
 	return (
 		<header
-			className={
-				(styles["not-top-img"], scrollStatus ? styles["nav-fixed"] : "")
-			}
+			className={classNames(styles["not-top-img"], {
+				[styles["nav-fixed"]]: scrollStatus,
+			})}
 			id={styles["page-header"]}
 		>
 			<nav id={styles["nav"]} className={styles["show"]}>
 				<div id={styles["nav-group"]}>
 					<div className={styles["nav-left"]}>
-						<div className='back-home-button'>弹窗</div>
-						<div className='back-home-button'>返回博客主页</div>
+						<a className={styles["back-home"]}>
+							<span>Yan Code</span>
+						</a>
 					</div>
 					<div className={styles["nav-content"]}>
 						<div className={styles["nav-menus"]}>
 							<div className={styles["menus_items"]}>
-								<div className='menus_item'>标签1</div>
-								<div className='menus_item'>标签2</div>
-								<div className='menus_item'>标签3</div>
-								<div className='menus_item'>标签4</div>
+								<a className={styles["nav_item"]}>
+									<span>标签1</span>
+								</a>
+								<a className={styles["nav_item"]}>
+									<span>标签2</span>
+								</a>
+								<a className={styles["nav_item"]}>
+									<span>标签3</span>
+								</a>
+								<a className={styles["nav_item"]}>
+									<span>标签4</span>
+								</a>
 							</div>
 						</div>
 						<div className={styles["nav-title"]}>

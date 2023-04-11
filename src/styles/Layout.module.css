@@ -5,6 +5,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   transition: all 0.5s ease 0s;
+  z-index: 999;
+}
+
+.not-top-img {
   height: 60px;
 }
 
@@ -15,6 +19,7 @@
   outline: 1px solid var(--blog-none);
   transition: all 0.5s ease 0s;
   overflow: hidden;
+  z-index: 999;
 }
 
 .nav-left, .nav-right {
@@ -22,6 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 99;
 }
 
 .nav-content {
@@ -129,4 +135,64 @@
     padding: 0 30px;
     width: 1400px;
   }
+}
+
+/* 具体内容 */
+
+#nav a {
+  letter-spacing: 0.3rem;
+  padding: 0 0.7rem 0 1rem;
+  font-weight: bold;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 40px;
+}
+
+.nav_item, .back-home {
+  position: relative;
+  display: block;
+  padding: 0;
+  font-size: 1.15em;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--blog-fontcolor);
+  text-shadow: none;
+  transition: 0.3s;
+}
+
+.nav_item {
+  margin: 0 .5rem;
+}
+
+.nav_item:hover {
+  background: var(--blog-main);
+  color: var(--blog-white);
+  transition: 0.3s;
+}
+
+.back-home:hover {
+  background: var(--blog-main);
+  color: var(--blog-white);
+  transition: 0.3s;
+}
+
+.back-home:hover > span {
+  opacity: 0;
+}
+
+.back-home:hover::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  right: 0;
+  content: '首页';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--blog-white)
 }
