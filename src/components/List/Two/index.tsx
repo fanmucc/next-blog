@@ -28,7 +28,7 @@ const ListTwo = () => {
 				<div className={styles["list-tags"]}>
 					<div className={styles["tags-left"]}>
 						<div>文章标签多个</div>
-						<div>发布时间</div>
+            <div>发布时间</div>
 					</div>
 					<div className={styles["tags-right"]}>最新</div>
 				</div>

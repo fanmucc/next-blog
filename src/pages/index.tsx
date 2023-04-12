@@ -25,16 +25,16 @@ export default function Home(props: AppProps) {
 				<div
 					style={{
 						display: "grid",
-						gridTemplateColumns: "1fr 1fr;",
+						gridTemplateColumns: "1fr",
 						gridRowGap: "1rem",
 						gridColumnGap: "1rem",
 					}}
 				>
-					<List.ListTwo />
-					<List.ListTwo />
-					<List.ListTwo />
-					<List.ListTwo />
-					<List.ListTwo />
+					<List.ListOne />
+					<List.ListOne />
+					<List.ListOne />
+					<List.ListOne />
+					<List.ListOne />
 				</div>
 			</Layout>
 			{/* <Head>
