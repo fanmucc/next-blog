@@ -196,3 +196,36 @@
   font-size: 1.1rem;
   color: var(--blog-white)
 }
+
+#page-header {
+  background-image: none !important;
+  display: flex;
+  justify-content: center;
+}
+
+
+.header-bg {
+  height: 25rem;
+  /* backdrop-filter: blur(500px); */
+  transition: 0.6s;
+  overflow: hidden;
+}
+
+.header-bg::before {
+  position: absolute;
+  transition: 0.3s;
+  opacity: 0.93;
+  height: 25rem;
+  top: 0px;
+  left: 0px;
+  display: block;
+  width: 100%;
+  content: "";
+  background-color: var(--blog-main);
+  animation: slide-in-op 0.6s 0s forwards;
+  z-index: 0;
+  filter: blur(10px);
+  backdrop-filter: blur(500px);
+}
+
+

@@ -54,6 +54,7 @@
   --toc-link-color: #666261;
   --card-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
   --card-hover-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.15);
+  --heo-main: #ae8e4e !important;
 }
 
 [data-theme=light] {
@@ -395,6 +396,10 @@ img {
   width: 100%;
 }
 
+#body-wrap {
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   :root {
     --style-border: 0px solid var(--blog-card-border);
@@ -403,20 +408,12 @@ img {
 }
 
 @media screen and (min-width: 0px) and (max-width: 749px) {
-  #body-wrap {
-    width: 100%;
-  }
-
   #layout {
     width: 100%;
   }
 }
 
 @media screen and (min-width: 750px) and (max-width: 1399px) {
-  #body-wrap {
-    width: 100%;
-  }
-
   #layout {
     width: 100%;
   }
@@ -438,4 +435,114 @@ img {
   width: 100%;
 }
 
+.main-hero-waves-area {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -11px;
+  z-index: 30;
+}
+.waves-area .waves-svg {
+  width: 100%;
+  height: 60px;
+}
 
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 30s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: var(--blog-background);
+  opacity: 0.5;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: var(--blog-background);
+  opacity: 0.6;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: var(--blog-background);
+  opacity: 0.7;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  fill: var(--blog-background);
+  opacity: 1;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* 元素透明度改变 */
+@keyframes slide-in-op {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showCover {
+  from {
+    opacity: 0;
+    transform: rotate(10deg) translateY(-8%) scale(1.8);
+  }
+  to {
+    opacity: 0.5;
+    transform: rotate(10deg) translateY(-10%) scale(2);
+  }
+}
+
+
+#post-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-width: 50vw;
+  min-height: 20rem;
+  opacity: 0.8;
+}
+
+.coverdiv {
+  width: 70%;
+  height: 100%;
+  position: relative;
+  margin: 0 -20% 0 auto;
+  overflow: hidden;
+  margin-bottom: 0;
+  transform: rotate(10deg) translateY(-10%) scale(2);
+  filter: blur(10px);
+  z-index: 10;
+}
+
+.coverdiv.loaded{
+  display: block;
+  display: block;
+  opacity: 0.5;
+  animation: showCover 1s 0.3s backwards;
+  transform: rotate(10deg) translateY(-10%) scale(2);
+}
+
+.coverdiv:after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 110px -130px 300px 60px var(--hello-main) inset;
+}

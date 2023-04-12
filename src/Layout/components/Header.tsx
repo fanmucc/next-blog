@@ -16,8 +16,12 @@ const PageHeader = () => {
 		<header
 			className={classNames(styles["not-top-img"], {
 				[styles["nav-fixed"]]: scrollStatus,
+				[styles["header-bg"]]: true,
 			})}
 			id={styles["page-header"]}
+			style={{
+				backgroundImage: `url('https://p.zhheo.com/aAWBR820890481681098008701.png!cover')`,
+			}}
 		>
 			<nav id={styles["nav"]} className={styles["show"]}>
 				<div id={styles["nav-group"]}>
@@ -61,6 +65,39 @@ const PageHeader = () => {
 					</div>
 				</div>
 			</nav>
+			<div className='coverdiv loaded' id='coverdiv'>
+				<img
+					className='nolazyload entered loading'
+					id='post-cover'
+					src='https://p.zhheo.com/aAWBR820890481681098008701.png!cover'
+					alt='cover'
+					data-ll-status='loading'
+				/>
+			</div>
+			<div id='header-info'>123</div>
+			<section className='main-hero-waves-area waves-area'>
+				<svg
+					className='waves-svg'
+					xmlns='http://www.w3.org/2000/svg'
+					xlink='http://www.w3.org/1999/xlink'
+					viewBox='0 24 150 28'
+					preserveAspectRatio='none'
+					shape-rendering='auto'
+				>
+					<defs>
+						<path
+							id='gentle-wave'
+							d='M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z'
+						></path>
+					</defs>
+					<g className='parallax'>
+						<use href='#gentle-wave' x='48' y='0'></use>
+						<use href='#gentle-wave' x='48' y='3'></use>
+						<use href='#gentle-wave' x='48' y='5'></use>
+						<use href='#gentle-wave' x='48' y='7'></use>
+					</g>
+				</svg>
+			</section>
 		</header>
 	);
 };
