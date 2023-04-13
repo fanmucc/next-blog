@@ -69,7 +69,7 @@ const PageHeader = () => {
 				<img
 					className='nolazyload entered loading'
 					id='post-cover'
-					src='https://p.zhheo.com/aAWBR820890481681098008701.png!cover'
+					src='https://p.zhheo.com/eJpUol25390481680492353131.png!cover'
 					alt='cover'
 					data-ll-status='loading'
 				/>
