@@ -228,7 +228,7 @@
   }
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -273,7 +273,7 @@
     --style-border-dashed: 1px dashed var(--blog-theme-op);
     --style-border-forever: 2px solid var(--blog-lighttext);
   }
-} */
+}
 
 
 

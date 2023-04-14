@@ -74,7 +74,28 @@ const PageHeader = () => {
 					data-ll-status='loading'
 				/>
 			</div>
-			<div id='header-info'>123</div>
+			<div id={styles["header-info"]}>
+				<div className={styles["info-tags"]}>
+					<a href='#' title='原创' className={styles["tags-item"]}>
+						tag1
+					</a>
+					<a href='#' title='原创' className={styles["tags-item"]}>
+						tag2
+					</a>
+					<div className={styles["tags-share-list"]}>
+						<a href='#' title='原创' className={styles["tags-share"]}>
+							tag2
+						</a>
+						<a href='#' title='原创' className={styles["tags-share"]}>
+							tag2
+						</a>
+					</div>
+				</div>
+				<h1 id={styles["header-title"]}>
+					即时AI文字生成设计上手体验：不太能取代设计师，而是一个头脑风暴的好工具
+				</h1>
+				<div id={styles["header-meta"]}>浏览量: 1.1k</div>
+			</div>
 			<section className='main-hero-waves-area waves-area'>
 				<svg
 					className='waves-svg'
