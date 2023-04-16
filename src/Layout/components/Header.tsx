@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import classNames from "classnames";
-import styles from "@/styles/Layout.module.css";
+import styles from "@/styles/layout.module.scss";
 
 const PageHeader = () => {
 	const [scrollStatus, setScrollStatus] = useState(false);

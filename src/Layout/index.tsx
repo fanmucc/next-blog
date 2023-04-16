@@ -1,10 +1,10 @@
 import PageHeader from "./components/Header";
 
-import styles from "@/styles/Layout.module.css";
+import styles from "@/styles/layout.module.scss";
 
 const Layout = (props: any) => {
 	return (
-		<div className={styles.page} id='body-wrap'>
+		<div className={styles["page"]} id='body-wrap'>
 			<PageHeader />
 			<main
 				id='layout'
