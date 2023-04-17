@@ -44,8 +44,8 @@ export default function Home(
 						gridColumnGap: "1rem",
 					}}
 				>
-					<List.ListTwo />
-					<List.ListTwo />
+					<List.ListOne />
+					<List.ListOne />
 					<List.ListTwo />
 					<List.ListTwo />
 					<List.ListTwo />

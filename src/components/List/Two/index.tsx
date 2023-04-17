@@ -1,4 +1,4 @@
-import styles from "@/styles/list-two.module.scss";
+import styles from "@/styles/blog-list.module.scss";
 
 const ListTwo = () => {
 	return (
