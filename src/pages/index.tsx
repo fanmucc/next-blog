@@ -6,18 +6,18 @@ import hello from "@/pages/api/mock/hello";
 import { log } from "console";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
-let md = require("markdown-it")();
+import MarkdownIt from "@/utils/markdowIt";
 
 import List from "../components/List";
 import { Html } from "next/document";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home(
-	props: AppProps<{
-		markdown: string;
-	}>
-) {
+interface Iprops extends AppProps {
+	markdown: string;
+}
+
+export default function Home(props: Iprops) {
 	console.log(props, "===props");
 
 	return (
@@ -66,7 +66,7 @@ export async function getServerSideProps({
 	res: NextApiResponse;
 }) {
 	console.log(req, res, "控制台输出");
-	var result = md.render("# markdown-it rulezz!");
+	var result = MarkdownIt("::: spoiler click me\n*content*\n:::\n");
 	console.log(result, "===markdown");
 
 	res.setHeader(
