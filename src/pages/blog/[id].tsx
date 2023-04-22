@@ -1,24 +1,16 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
+import markdownIt from "@/utils/markdowIt";
+
 import Layout from "@/Layout";
-import hello from "@/pages/api/mock/hello";
-import { log } from "console";
+import Head from "next/head";
+
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
-import MarkdownIt from "@/utils/markdowIt";
-
-import List from "../components/List";
-import { Html } from "next/document";
-
-const inter = Inter({ subsets: ["latin"] });
-
 interface Iprops extends AppProps {
 	markdown: string;
 }
 
-export default function Home(props: Iprops) {
-	// console.log(props, "===props");
+const Blog = (props: Iprops) => {
+	console.log(props);
 
 	return (
 		<>
@@ -38,25 +30,20 @@ export default function Home(props: Iprops) {
 			<Layout>
 				<div
 					style={{
-						display: "grid",
-						gridTemplateColumns: "1fr 1fr",
-						gridRowGap: "1rem",
-						gridColumnGap: "1rem",
+						padding: "1rem 1.5rem",
 					}}
 				>
-					<List.ListOne />
-					<List.ListOne />
-					<List.ListTwo />
-					<List.ListTwo />
-					<List.ListTwo />
 					<div
 						dangerouslySetInnerHTML={{ __html: props?.markdown || "" }}
 					></div>
+					123
 				</div>
 			</Layout>
 		</>
 	);
-}
+};
+
+export default Blog;
 
 export async function getServerSideProps({
 	req,
@@ -67,7 +54,7 @@ export async function getServerSideProps({
 }) {
 	// console.log(req, res, "控制台输出");
 	// var result = MarkdownIt("::: spoiler click me\n*content*\n:::\n");
-	var result = MarkdownIt(`# 我是标题`);
+	var result = markdownIt(`# 我是标题`);
 	// var result = MarkdownIt(`@ header
 	// contentTwo
 	// `);

@@ -172,7 +172,21 @@
   resolved "https://registry.npmmirror.com/@types/linkify-it/-/linkify-it-3.0.2.tgz#fd2cd2edbaa7eaac7e7f3c1748b52a19143846c9"
   integrity sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==
 
-"@types/markdown-it@^12.2.3":
+"@types/markdown-it-attrs@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.npmmirror.com/@types/markdown-it-attrs/-/markdown-it-attrs-4.1.0.tgz#41c7344f99f3984c370e47af5455a7be6645a108"
+  integrity sha512-ILGUUJf7gydzxY3FrN2XwFT/f6rfxtkXZal478Jf4vqFn2AkQCwGCTx3TI+IPT+5ipOf+hUplem8wfVuCyK/Pw==
+  dependencies:
+    "@types/markdown-it" "*"
+
+"@types/markdown-it-container@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.npmmirror.com/@types/markdown-it-container/-/markdown-it-container-2.0.5.tgz#abd793b64c5adc7b2d1e8963eddb388198248152"
+  integrity sha512-8v5jIC5gcCUv+JcD0DExwNBkoKC0kLB4acensF0NoNlTIcXmQxF3RDjzAdIW82sXSoR+n772ePguxIWlq2ELvA==
+  dependencies:
+    "@types/markdown-it" "*"
+
+"@types/markdown-it@*", "@types/markdown-it@^12.2.3":
   version "12.2.3"
   resolved "https://registry.npmmirror.com/@types/markdown-it/-/markdown-it-12.2.3.tgz#0d6f6e5e413f8daaa26522904597be3d6cd93b51"
   integrity sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==
@@ -1885,6 +1899,11 @@ lru-cache@^6.0.0:
   integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   dependencies:
     yallist "^4.0.0"
+
+markdown-it-attrs@^4.1.6:
+  version "4.1.6"
+  resolved "https://registry.npmmirror.com/markdown-it-attrs/-/markdown-it-attrs-4.1.6.tgz#2bc331c7649d8c6396a0613c2bba1093f3e64da9"
+  integrity sha512-O7PDKZlN8RFMyDX13JnctQompwrrILuz2y43pW2GagcwpIIElkAdfeek+erHfxUOlXWPsjFeWmZ8ch1xtRLWpA==
 
 markdown-it-container@^3.0.0:
   version "3.0.0"
