@@ -1,17 +1,18 @@
 import markdownIt from "@/utils/markdowIt";
+import path from "path";
+import { getMdFiles } from "@/utils";
 
 import Layout from "@/Layout";
 import Head from "next/head";
 
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
+import { log } from "console";
 interface Iprops extends AppProps {
 	markdown: string;
 }
 
 const Blog = (props: Iprops) => {
-	console.log(props);
-
 	return (
 		<>
 			<Head>
@@ -36,7 +37,6 @@ const Blog = (props: Iprops) => {
 					<div
 						dangerouslySetInnerHTML={{ __html: props?.markdown || "" }}
 					></div>
-					123
 				</div>
 			</Layout>
 		</>
@@ -54,16 +54,24 @@ export async function getServerSideProps({
 }) {
 	// console.log(req, res, "控制台输出");
 	// var result = MarkdownIt("::: spoiler click me\n*content*\n:::\n");
-	var result = markdownIt(`# 我是标题`);
-	// var result = MarkdownIt(`@ header
-	// contentTwo
-	// `);
-	// console.log(result);
+
+	const pathUrl = path.join("./src/markdown");
+	let a = "";
+	// 调用函数
+	let files = await getMdFiles(pathUrl)
+		.then((files) => {
+			a = files[0];
+		})
+		.catch((err) => console.error(err));
+	console.log(files);
+	var result = markdownIt(a);
 
 	res.setHeader(
 		"Cache-Control",
 		"public, s-maxage=10, stale-while-revalidate=59"
 	);
+
+	log(a);
 	return {
 		props: {
 			headerMenus: [

@@ -61,11 +61,11 @@ export default function renderMarkdown(markdown: string): string {
 
   // 修改# 转 h1标签相关逻辑
   md.renderer.rules.heading_open = (tokens, idx) => {
-    console.log('走到了这里');
+    // console.log('走到了这里');
     // console.log(tokens);
     const token = tokens[idx];
     const content = tokens[1].content
-    console.log(tokens[idx]);
+    // console.log(tokens[idx]);
     if (token.nesting === 1) {
       return `<${token.tag} id='${content}' class="custom-heading">`;
     } else {
@@ -75,7 +75,7 @@ export default function renderMarkdown(markdown: string): string {
 
   // 修改标签 html 块元素标签渲染逻辑
   md.renderer.rules.html_block = (tokens, idx) => {
-    console.log('block 标签');
+    // console.log('block 标签');
 
     let html = tokens[idx].content;
     // 根据需要修改 HTML 字符串
@@ -86,7 +86,7 @@ export default function renderMarkdown(markdown: string): string {
 
   // 修改标签 html 行内元素标签渲染逻辑
   md.renderer.rules.html_inline = (tokens, idx) => {
-    console.log('行内标签');
+    // console.log('行内标签');
 
     let html = tokens[idx].content;
     // 根据需要修改 HTML 字符串
