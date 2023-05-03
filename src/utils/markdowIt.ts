@@ -101,8 +101,20 @@ export default function renderMarkdown(markdown: string): string {
     return '</p></li>\n'
   }
 
+  // 自定义图片
+  md.renderer.rules.image = function (tokens: any, idx, options, env, self) {
+    console.log('走到了这里');
+    console.log(tokens[idx]);
 
+    var src = tokens[idx].attrs[0][1];
+    var title = tokens[idx].attrs[0][2];
+    var alt = tokens[idx].children[0].content;
 
+    return `<p>
+      <img src='${src}' data-lazy-src='${src}' alt='${alt}' title='${alt}'/>
+      <div class="markdown-img-alt">${alt}</div>
+    </p>`
+  }
 
 
 

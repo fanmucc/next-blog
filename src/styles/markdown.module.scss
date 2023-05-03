@@ -207,5 +207,18 @@
       padding-left: 0.6rem;
     }
 
+    /* 文章图片 */
+    img {
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+      object-fit: cover;
+      display: block;
+      margin: 0px auto 0.8rem;
+    }
+
+    img.error {
+      content: url("https://bu.dusays.com/2023/03/03/6401a79030db5.png");
+    }
+
   }  
 }
