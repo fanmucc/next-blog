@@ -4,6 +4,7 @@ import { getMdFiles } from "@/utils";
 
 import Layout from "@/Layout";
 import Head from "next/head";
+import Markdown from "@/components/Markdown";
 
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
@@ -29,15 +30,7 @@ const Blog = (props: Iprops) => {
 				</style>
 			</Head>
 			<Layout>
-				<div
-					style={{
-						padding: "1rem 1.5rem",
-					}}
-				>
-					<div
-						dangerouslySetInnerHTML={{ __html: props?.markdown || "" }}
-					></div>
-				</div>
+				<Markdown markdown={props?.markdown || ""} />
 			</Layout>
 		</>
 	);

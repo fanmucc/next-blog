@@ -1,0 +1,125 @@
+#post {
+  box-shadow: var(--blog-shadow-border);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  background: var(--blog-card-bg);
+  border: var(--style-border);
+  width: calc(100% - 300px);
+  align-self: flex-start;
+  animation: slide-in 0.6s 0.1s backwards;
+
+  // 基础样式
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1rem;
+    padding-top: 0;
+    padding-left: 0 !important;
+    font-weight: weight;
+  }
+
+  h2 {
+    margin-top: 1.5rem;
+  }
+
+  #article-container {
+    /* 文章基础样式  h1~h6*/
+    h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+      top: calc(50% - .45rem);
+      content: '';
+    }
+
+    /* 文章标题前图标悬浮 */
+    h1:hover:before, h2:hover:before, h3:hover:before, h4:hover:before, h5:hover:before, h6:hover:before {
+      color: var(--blog-lighttext);
+    }
+
+    /* 标题悬浮效果 */
+    h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+      padding-left: 0rem;
+      // padding-left: 1.3rem;
+    }
+
+    #article-container>h2:nth-child(1), #article-container>h1:nth-child(1) {
+      margin: 0;
+    }
+
+    // p标签
+    p {
+      margin: 1rem 0;
+      text-align: left;
+      letter-spacing: 0.6px;
+    }
+
+    /* 文章tab样式 */
+    ul>li:not(.tab):before {
+      border: 0.21em solid var(--blog-lighttext);
+      background: var(--blog-lighttext);
+    }
+
+    ol, ul {
+      padding: 0;
+    }
+
+    /* 文章表格间距 */
+    .table-wrap {
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    table th,table td {
+      border: var(--style-border-always);
+    }
+
+    table thead {
+      background: var(--blog-secondbg);
+    }
+
+    /* 文章中的加粗文本颜色 */
+    b, strong {
+      color: var(--blog-lighttext);
+    }
+
+    /* 文章字号 */
+    p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    @media screen and (max-width: 768px) {
+      & p {
+        line-height: 1.5;
+      }
+    }
+
+    &.markdown-content {
+      h1,  h2,  h3, h4 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+      }
+    } 
+
+    &.markdown-content h1 {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+
+    &.markdown-content h2 {
+      padding-top: 1.5rem;
+      font-size: 1.3rem;
+      line-height: 1.3;
+      border-top: 1px dashed var(--blog-theme-op);
+    }
+
+    &.markdown-content h3 {
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    &.markdown-content h4 {
+      font-size: 1.0rem;
+      line-height: 1.3;
+    }
+  }  
+}
