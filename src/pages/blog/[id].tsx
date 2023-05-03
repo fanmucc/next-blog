@@ -56,7 +56,7 @@ export async function getServerSideProps({
 			a = files[0];
 		})
 		.catch((err) => console.error(err));
-	console.log(files);
+	// console.log(files);
 	var result = markdownIt(a);
 
 	res.setHeader(
@@ -64,7 +64,7 @@ export async function getServerSideProps({
 		"public, s-maxage=10, stale-while-revalidate=59"
 	);
 
-	log(a);
+	// log(a);
 	return {
 		props: {
 			headerMenus: [

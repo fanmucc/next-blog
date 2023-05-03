@@ -64,10 +64,12 @@ export default function renderMarkdown(markdown: string): string {
     // console.log('走到了这里');
     // console.log(tokens);
     const token = tokens[idx];
-    const content = tokens[1].content
-    // console.log(tokens[idx]);
+    // console.log(tokens, idx);
+
+    const content = tokens[idx + 1].content
+    console.log(tokens, token, idx);
     if (token.nesting === 1) {
-      return `<${token.tag} id='${content}' class="custom-heading">`;
+      return `<${token.tag} id='${content}'>`;
     } else {
       return `</${token.tag}>`;
     }

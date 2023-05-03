@@ -14,7 +14,7 @@ export const getMdFiles = async (dirPath: any): Promise<any> => {
     if (stat.isFile() && path.extname(filePath) === '.md') { // 判断是否是文件和是否是 .md 文件
       mdFiles.push(text);
     } else if (stat.isDirectory()) { // 如果是文件夹则递归调用函数
-      log('文件夹')
+      // log('文件夹')
       mdFiles.push(...await getMdFiles(filePath));
     }
   }
