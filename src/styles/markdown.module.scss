@@ -19,6 +19,25 @@
   h2 {
     margin-top: 1.5rem;
   }
+  
+  /* 文章引用 */
+  blockquote {
+    border: var(--style-border-always);
+    background-color: var(--blog-secondbg);
+    color: var(--blog-secondtext);
+    border-radius: 8px;
+    margin: 1rem 0;
+    padding: 0.5rem 0.8rem;
+    // 多重引用嵌套 里面的blockquotemargin为0
+    & blockquote {
+      margin: 0;
+    }
+  }
+
+  
+  blockquote p {
+    padding: 0;
+  }
 
   #article-container {
     /* 文章基础样式  h1~h6*/
@@ -38,7 +57,7 @@
       // padding-left: 1.3rem;
     }
 
-    #article-container>h2:nth-child(1), #article-container>h1:nth-child(1) {
+    &>h2:nth-child(1), &>h1:nth-child(1) {
       margin: 0;
     }
 
@@ -121,5 +140,72 @@
       font-size: 1.0rem;
       line-height: 1.3;
     }
+
+    // 引用样式
+    &.markdown-content  blockquote p {
+      margin: 0;
+      line-height: 1.4;
+      font-size: 15px;
+    }
+
+    // 列表
+    ol li:before, ul li:before {
+      background: var(--blog-theme);
+      cursor: default;
+    }
+    
+    ol li:hover:before, ul li:hover:before {
+      transform: rotate(0deg);
+    }
+
+    // ol li::before, ul li::before {
+    //   position: absolute;
+    //   top: 0px;
+    //   left: 0px;
+    //   background: rgb(48, 122, 246);
+    //   color: rgb(255, 255, 255);
+    //   cursor: pointer;
+    //   transition: all 0.3s ease-out 0s;
+    // }
+
+    // @media screen and (max-width: 768px) {
+    
+    // }
+
+    ol, ul {
+      // padding: 0px 0px 0px 0.4rem;
+    }
+    
+    ol p, ul p {
+      margin: 0px 0.5rem 0 0;
+      display: inline-flex;
+      line-height: 1.4;
+      font-size: 15px;
+    }
+
+    ol li:before {
+      padding: 0 .5rem;
+      background: none !important;
+      border: none !important;
+      content: attr(start);
+      line-height: 1.4;
+      font-size: 15px;
+      color: var(--blog-lighttext);
+    }
+
+    ul li:before {
+      padding: 0 .5rem;
+      background: none !important;
+      border: none !important;
+      content: attr(markup);
+      line-height: 1.4;
+      font-size: 15px;
+      color: var(--blog-lighttext);
+    }
+    
+    ol ol, ol ul, ul ol, ul ul {
+      padding-left: 0.6rem;
+    }
+
   }  
 }

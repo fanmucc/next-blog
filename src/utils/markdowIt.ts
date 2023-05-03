@@ -2,6 +2,7 @@ import MarkdownIt from 'markdown-it';
 import MarkdownItContainer from 'markdown-it-container'
 import markdownItAttrs from 'markdown-it-attrs'
 import Token from 'markdown-it/lib/token';
+import { log } from 'console';
 
 
 
@@ -61,13 +62,8 @@ export default function renderMarkdown(markdown: string): string {
 
   // 修改# 转 h1标签相关逻辑
   md.renderer.rules.heading_open = (tokens, idx) => {
-    // console.log('走到了这里');
-    // console.log(tokens);
     const token = tokens[idx];
-    // console.log(tokens, idx);
-
     const content = tokens[idx + 1].content
-    console.log(tokens, token, idx);
     if (token.nesting === 1) {
       return `<${token.tag} id='${content}'>`;
     } else {
@@ -77,8 +73,6 @@ export default function renderMarkdown(markdown: string): string {
 
   // 修改标签 html 块元素标签渲染逻辑
   md.renderer.rules.html_block = (tokens, idx) => {
-    // console.log('block 标签');
-
     let html = tokens[idx].content;
     // 根据需要修改 HTML 字符串
     html = html.replace(/<p>/g, '<p class="some-class">');
@@ -89,13 +83,29 @@ export default function renderMarkdown(markdown: string): string {
   // 修改标签 html 行内元素标签渲染逻辑
   md.renderer.rules.html_inline = (tokens, idx) => {
     // console.log('行内标签');
-
     let html = tokens[idx].content;
     // 根据需要修改 HTML 字符串
     html = html.replace(/<span>/g, '<span class="some-class">');
     // 返回修改后的 HTML 字符串
     return html;
   }
+
+  // 修改li标签
+  // 自定义li标签渲染
+  md.renderer.rules.list_item_open = function (tokens, idx, options, env, self) {
+    let token = tokens[idx]
+    return `<li start='${token?.info}.' markup='${token?.markup}'><p>`
+  }
+
+  md.renderer.rules.list_item_close = function (tokens, idx, options, env, self) {
+    return '</p></li>\n'
+  }
+
+
+
+
+
+
 
 
   return md.render(markdown);

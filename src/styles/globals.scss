@@ -388,6 +388,9 @@ img {
   border-style: none;
 }
 
+ul li {list-style-type:none}
+ol li {list-style-type:none}
+
 /* 公共宽度 */
 #__next {
   display: flex;
