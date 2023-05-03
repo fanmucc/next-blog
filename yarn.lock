@@ -1431,6 +1431,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+highlight.js@^11.5.1, highlight.js@^11.8.0:
+  version "11.8.0"
+  resolved "https://registry.npmmirror.com/highlight.js/-/highlight.js-11.8.0.tgz#966518ea83257bae2e7c9a48596231856555bb65"
+  integrity sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==
+
 icss-replace-symbols@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmmirror.com/icss-replace-symbols/-/icss-replace-symbols-1.1.0.tgz#06ea6f83679a7749e386cfe1fe812ae5db223ded"
@@ -1909,6 +1914,13 @@ markdown-it-container@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmmirror.com/markdown-it-container/-/markdown-it-container-3.0.0.tgz#1d19b06040a020f9a827577bb7dbf67aa5de9a5b"
   integrity sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==
+
+markdown-it-highlightjs@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npmmirror.com/markdown-it-highlightjs/-/markdown-it-highlightjs-4.0.1.tgz#6b8eb6a3b971ed592db1ff160cfa5ce9f2e44232"
+  integrity sha512-EPXwFEN6P5nqR3G4KjT20r20xbGYKMMA/360hhSYFmeoGXTE6hsLtJAiB/8ID8slVH4CWHHEL7GX0YenyIstVQ==
+  dependencies:
+    highlight.js "^11.5.1"
 
 markdown-it@^13.0.1:
   version "13.0.1"

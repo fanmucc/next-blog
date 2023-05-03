@@ -3,6 +3,7 @@ import MarkdownItContainer from 'markdown-it-container'
 import markdownItAttrs from 'markdown-it-attrs'
 import Token from 'markdown-it/lib/token';
 import { log } from 'console';
+const hljs = require('highlight.js');
 
 
 
@@ -11,7 +12,7 @@ export default function renderMarkdown(markdown: string): string {
     html: true,
     linkify: true,
     typographer: true,
-    xhtmlOut: true
+    xhtmlOut: true,
   });
   // md.use(require('markdown-it-container'), 'a', {
 
@@ -103,9 +104,6 @@ export default function renderMarkdown(markdown: string): string {
 
   // 自定义图片
   md.renderer.rules.image = function (tokens: any, idx, options, env, self) {
-    console.log('走到了这里');
-    console.log(tokens[idx]);
-
     var src = tokens[idx].attrs[0][1];
     var title = tokens[idx].attrs[0][2];
     var alt = tokens[idx].children[0].content;
@@ -115,6 +113,64 @@ export default function renderMarkdown(markdown: string): string {
       <div class="markdown-img-alt">${alt}</div>
     </p>`
   }
+
+  // 代码高亮
+  md.use(require('markdown-it-highlightjs'));
+
+  // 自定义代码块的渲染方法
+  md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+    const token = tokens[idx];
+    console.log(token);
+
+    // 如果当前标记是代码块的开始标记
+    if (token.type === 'fence') {
+      // 获取代码块的语言
+      const lang = token.info.trim();
+      const code = token.content.trim();
+      const codeLenth = new Array((token?.map?.[1] - token?.map?.[0]) || 0).fill(1)
+      console.log(codeLenth);
+
+      // 如果指定了代码块的语言
+      if (lang) {
+        // 使用 highlight.js 库来高亮代码
+        const result = hljs.highlight(lang, code);
+
+        let lineDemo = ''
+        codeLenth.forEach((i, index) => {
+          log(`<span class="line">${index + 1}</span> <br>`)
+          lineDemo += `<span class="line">${index + 1}</span> <br>`
+        })
+
+        console.log(lineDemo, '====');
+
+
+        // 返回自定义的代码块渲染结果
+        return `<figure class="highlight ${result.language}">
+          <table>
+            <tbody>
+              <td class="gutter">
+                <pre>
+                  ${lineDemo}
+                </pre>
+              </td>
+              <td class="code">
+                <pre>
+                  ${result.value}
+                </pre>
+              </td>
+            </tbody>
+          </table>
+        </figure>`
+        // return `<pre><code class="hljs ${result.language}">${result.value}</code></pre>\n`;
+      }
+
+      // 如果没有指定代码块的语言
+      return `<pre><code>${code}</code></pre>\n`;
+    }
+
+    // 使用默认的渲染方法来渲染其他类型的标记
+    return self.renderToken(tokens, idx, options);
+  };
 
 
 

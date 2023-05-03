@@ -79,7 +79,7 @@
     }
 
     /* 文章表格间距 */
-    .table-wrap {
+    table {
       margin: 1rem 0;
       border-radius: 8px;
     }
@@ -218,6 +218,81 @@
 
     img.error {
       content: url("https://bu.dusays.com/2023/03/03/6401a79030db5.png");
+    }
+
+    // 段落
+    /* 文章中的加粗文本颜色 */
+    b, strong {
+      color: var(--blog-lighttext);
+    }
+
+    em {
+      color: var(--blog-theme);
+      font-style: normal;
+    }
+
+    hr {
+      box-sizing: content-box;
+      height: 0px;
+      overflow: visible;
+    }
+
+    s {
+      color: var(--blog-red);
+    }
+
+    u {
+      color: var(--blog-blue);
+    }
+
+    // 代码
+    & > p > code {
+      color: var(--blog-white);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      margin: 0px 4px;
+      background: var(--blog-pink);
+      line-height: 2;
+      box-shadow: var(--blog-shadow-border);
+    }
+
+    /* 文章代码框 */
+    figure {
+      margin-top: 0.5rem !important;
+    }
+
+    figure.highlight .highlight-tools {
+      background: var(--blog-secondbg);
+      border-bottom: var(--style-border-always);
+      color: var(--blog-fontcolor);
+    }
+
+    .gutter {
+      opacity: 0.6;
+      user-select: none;
+    }
+
+    .code-lang {
+      margin-left: 6px;
+    }
+
+    .highlight-tools .code-lang {
+      text-transform: capitalize;
+      left: 1.9rem;
+    }
+
+    figure.highlight table::-webkit-scrollbar {
+      color: var(--blog-blue);
+      background: var(--blog-card-bg);
+      height: 8px;
+    }
+
+    figure.highlight table::-webkit-scrollbar-thumb {
+      background: var(--blog-main-op);
+    }
+
+    figure.highlight table::-webkit-scrollbar-thumb:hover {
+      background: var(--blog-main);
     }
 
   }  
