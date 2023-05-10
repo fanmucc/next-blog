@@ -54,7 +54,8 @@
   --toc-link-color: #666261;
   --card-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
   --card-hover-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.15);
-  --heo-main: #ae8e4e !important;
+  --blog-main: #ae8e4e !important;
+  --up-fill: '/png/up_fill.png'
 }
 
 [data-theme=light] {
@@ -98,6 +99,7 @@
   --style-border-hover-always: 1px solid var(--blog-main);
   --style-border-dashed: 1px dashed var(--blog-theme-op);
   --style-border-forever: 2px solid var(--blog-main);
+  --up-fill: '/png/up_fill.png'
 }
 
 [data-theme=dark] {
@@ -141,6 +143,7 @@
   --style-border-hover-always: 1px solid var(--blog-theme);
   --style-border-dashed: 1px dashed var(--blog-theme-op);
   --style-border-forever: 2px solid var(--blog-lighttext);
+  --up-fill: '/png/up_fill.png'
 }
 
 [data-theme=dark] {
@@ -178,6 +181,7 @@
   --hlnumber-color: rgba(255, 255, 255, 0.4);
   --hlscrollbar-bg: #1f1f1f;
   --hlexpand-bg: linear-gradient(180deg, rgba(23, 23, 23, 0.6), rgba(23, 23, 23, 0.9));
+  --up-fill: '/png/up_fill.png'
 }
 
 /* 用于检测用户是否有将系统的主题色设置为亮色或者暗色,dark 暗色  */
@@ -225,6 +229,7 @@
     --style-border-hover-always: 1px solid var(--blog-main);
     --style-border-dashed: 1px dashed var(--blog-theme-op);
     --style-border-forever: 2px solid var(--blog-main);
+    --up-fill: '/png/up_fill.png'
   }
 }
 
@@ -272,6 +277,7 @@
     --style-border-hover-always: 1px solid var(--blog-theme);
     --style-border-dashed: 1px dashed var(--blog-theme-op);
     --style-border-forever: 2px solid var(--blog-lighttext);
+    --up-fill: '/png/up_fill.png'
   }
 }
 
@@ -344,10 +350,6 @@ table {
   border-spacing: 0px;
   border-collapse: collapse;
   empty-cells: show;
-}
-
-table thead {
-  background: rgba(153, 169, 191, 0.1);
 }
 
 table td, table th {
@@ -565,3 +567,196 @@ ol li {list-style-type:none}
   font-size: 12px;
   color: var(--blog-secondtext);
 }
+
+// 表格
+.table-box {
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow-x: scroll;
+}
+
+table thead {
+  background: var(--blog-secondbg);
+}
+
+figure.highlight {
+  border-radius: 8px;
+  overflow-x: scroll;
+}
+
+figure.highlight table {
+  display: block;
+  border: none;
+  overflow: auto;
+  border: none !important;
+}
+
+figure.highlight table tbody {
+  display: table;
+  width: 100%;
+}
+
+figure.highlight table td {
+  padding: 0px;
+  border: none;
+  height: 100%;
+}
+
+figure.highlight .gutter {
+  opacity: 0.6;
+  user-select: none;
+  width: 30px;
+}
+
+figure.highlight .gutter pre {
+  color: var(--blog-secondtext);
+  background: var(--blog-secondbg);
+  border-right: var(--style-border-always);
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  width: 50px;
+  text-align: right;
+}
+
+// figure.highlight .gutter pre span:first-child {
+//   display: none;
+// }
+
+figure.highlight table td.code {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+figure.highlight .code pre {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  width: 100%;
+}
+
+figure.highlight .highlight-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--blog-secondbg);
+  border-bottom: var(--style-border-always);
+  color: var(--blog-fontcolor);
+  height: 2.15rem;
+  padding: 0 1rem;
+
+  .highlight-copy-icon {
+    cursor: pointer;
+  }
+}
+
+// figure.highlight table::-webkit-scrollbar-thumb {
+//   background: var(--hlscrollbar-bg);
+// }
+
+// figure.highlight pre .deletion {
+//   color: rgb(191, 66, 191);
+// }
+
+// figure.highlight pre .addition {
+//   color: rgb(16, 94, 222);
+// }
+
+// figure.highlight pre .meta {
+//   color: rgb(199, 146, 234);
+// }
+
+// figure.highlight pre .comment {
+//   color: rgb(150, 152, 150);
+// }
+
+// figure.highlight pre .attribute, figure.highlight pre .css .class, figure.highlight pre .css .id, figure.highlight pre .css .pseudo, figure.highlight pre .html .doctype, figure.highlight pre .regexp, figure.highlight pre .ruby .constant, figure.highlight pre .tag .name, figure.highlight pre .variable, figure.highlight pre .xml .doctype, figure.highlight pre .xml .pi, figure.highlight pre .xml .tag .title {
+//   color: var(--blog-red);
+// }
+
+// figure.highlight pre .tag {
+//   color: var(--blog-pink);
+// }
+
+// figure.highlight pre .command, figure.highlight pre .constant, figure.highlight pre .literal, figure.highlight pre .number, figure.highlight pre .params, figure.highlight pre .preprocessor {
+//   color: var(--blog-orange);
+// }
+
+// figure.highlight pre .built_in {
+//   color: var(--blog-yellow);
+// }
+
+// figure.highlight pre .css .rules .attribute, figure.highlight pre .formula, figure.highlight pre .header, figure.highlight pre .inheritance, figure.highlight pre .number, figure.highlight pre .ruby .class .title, figure.highlight pre .ruby .symbol, figure.highlight pre .special, figure.highlight pre .string, figure.highlight pre .value, figure.highlight pre .xml .cdata {
+//   color: var(--blog-green);
+// }
+
+// figure.highlight pre .css .hexcolor, figure.highlight pre .keyword, figure.highlight pre .title {
+//   color: rgb(62, 177, 223);
+// }
+
+// figure.highlight pre .coffeescript .title, figure.highlight pre .function, figure.highlight pre .javascript .title, figure.highlight pre .perl .sub, figure.highlight pre .python .decorator, figure.highlight pre .python .title, figure.highlight pre .ruby .function .title, figure.highlight pre .ruby .title .keyword {
+//   color: var(--blog-blue);
+// }
+
+// figure.highlight pre .javascript .function, figure.highlight pre .tag .attr {
+//   color: rgb(199, 146, 234);
+// }
+
+// figure.highlight .line.marked {
+//   background-color: rgba(97, 97, 97, 0.314);
+// }
+
+// figure.highlight table {
+//   display: block;
+//   border: none;
+//   overflow: scroll;
+// }
+
+// figure.highlight table td {
+//   padding: 0px;
+//   border: none;
+//   height: 100%;
+// }
+
+// figure.highlight table td.code {
+//   width: 100%;
+//   display: flex;
+//   position: relative;
+// }
+
+// figure.highlight .code pre {
+//   padding-right: 0.5rem;
+//   padding-left: 0.5rem;
+//   width: 100%;
+// }
+
+// figure.highlight, #article-container pre {
+//   overflow: auto;
+//   margin: 0px 0px 1rem;
+//   padding: 0px;
+//   line-height: 1.6;
+// }
+
+//  /* 文章代码框 */
+//  figure {
+//   margin-top: 0.5rem !important;
+// }
+
+// figure.highlight .highlight-tools {
+//   background: var(--blog-secondbg);
+//   border-bottom: var(--style-border-always);
+//   color: var(--blog-fontcolor);
+// }
+
+// .gutter {
+//   opacity: 0.6;
+//   user-select: none;
+// }
+
+// .code-lang {
+//   margin-left: 6px;
+// }
+
+// .highlight-tools .code-lang {
+//   text-transform: capitalize;
+//   left: 1.9rem;
+// }

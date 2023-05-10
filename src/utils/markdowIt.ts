@@ -5,8 +5,6 @@ import Token from 'markdown-it/lib/token';
 import { log } from 'console';
 const hljs = require('highlight.js');
 
-
-
 export default function renderMarkdown(markdown: string): string {
   const md = new MarkdownIt({
     html: true,
@@ -114,38 +112,45 @@ export default function renderMarkdown(markdown: string): string {
     </p>`
   }
 
+  // 自定义table
+  md.renderer.rules.table_open = function (tokens: any, idx, options, env, self) {
+    return '<div class="table-box"><table>'
+  }
+
+  md.renderer.rules.table_close = function (tokens: any, idx, options, env, self) {
+    return '</table></div>'
+  }
+
   // 代码高亮
   md.use(require('markdown-it-highlightjs'));
 
   // 自定义代码块的渲染方法
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
-    const token = tokens[idx];
-    console.log(token);
+    const token: any = tokens[idx];
 
     // 如果当前标记是代码块的开始标记
     if (token.type === 'fence') {
       // 获取代码块的语言
       const lang = token.info.trim();
       const code = token.content.trim();
-      const codeLenth = new Array((token?.map?.[1] - token?.map?.[0]) || 0).fill(1)
-      console.log(codeLenth);
+      const codeLenth = new Array((token?.map?.[1] - token?.map?.[0] - 2) || 0).fill(1)
 
       // 如果指定了代码块的语言
       if (lang) {
         // 使用 highlight.js 库来高亮代码
-        const result = hljs.highlight(lang, code);
+        const result = hljs.highlight(code, { language: lang });
 
         let lineDemo = ''
         codeLenth.forEach((i, index) => {
-          log(`<span class="line">${index + 1}</span> <br>`)
-          lineDemo += `<span class="line">${index + 1}</span> <br>`
+          lineDemo += `\n<span class="line">${index + 1}</span>`
         })
-
-        console.log(lineDemo, '====');
-
 
         // 返回自定义的代码块渲染结果
         return `<figure class="highlight ${result.language}">
+          <div class="highlight-tools">
+            <div>${result.language}</div>
+            <div><i class='iconfont icon-copy highlight-copy-icon'></i></div>
+          </div>
           <table>
             <tbody>
               <td class="gutter">
@@ -155,7 +160,7 @@ export default function renderMarkdown(markdown: string): string {
               </td>
               <td class="code">
                 <pre>
-                  ${result.value}
+                  \n ${result.value.trim()}
                 </pre>
               </td>
             </tbody>
