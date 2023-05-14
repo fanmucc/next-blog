@@ -9,7 +9,7 @@ import type { AppProps } from "next/app";
 import MarkdownIt from "@/utils/markdowIt";
 
 import List from "../components/List";
-import { Html } from "next/document";
+import Author from "@/components/Author";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +30,7 @@ export default function Home(props: Iprops) {
 				<style>
 					{`
             :root {
-              --blog-main: red !important;
+              // --blog-main: red !important;
             }
           `}
 				</style>
@@ -52,6 +52,13 @@ export default function Home(props: Iprops) {
 					<div
 						dangerouslySetInnerHTML={{ __html: props?.markdown || "" }}
 					></div>
+					<div
+						style={{
+							width: "300px",
+						}}
+					>
+						<Author />
+					</div>
 				</div>
 			</Layout>
 		</>

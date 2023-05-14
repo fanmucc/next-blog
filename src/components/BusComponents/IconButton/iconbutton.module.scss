@@ -1,0 +1,21 @@
+.blog-icon-button {
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--blog-white);
+  background: var(--blog-white-op);
+  cursor: pointer;
+  font-size: 12px;
+  text-align: left;
+  width: fit-content;
+
+  &:hover {
+    background: var(--blog-secondbg);
+    transform: scale(0.97);
+    color: var(--blog-white);
+    box-shadow: none;
+    
+  }
+}

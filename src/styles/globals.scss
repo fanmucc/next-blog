@@ -54,9 +54,10 @@
   --toc-link-color: #666261;
   --card-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
   --card-hover-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.15);
-  --blog-main: #ae8e4e !important;
+  // --blog-main: #425AEF !important;
   --up-fill: '/png/up_fill.png'
 }
+
 
 [data-theme=light] {
   color-scheme: light;
@@ -280,9 +281,6 @@
     --up-fill: '/png/up_fill.png'
   }
 }
-
-
-
 
 * {
   box-sizing: border-box;
