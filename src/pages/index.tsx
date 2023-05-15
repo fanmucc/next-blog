@@ -44,8 +44,7 @@ export default function Home(props: Iprops) {
 						gridColumnGap: "1rem",
 					}}
 				>
-					<List.ListOne />
-					<List.ListOne />
+					<List.ListTwo />
 					<List.ListTwo />
 					<List.ListTwo />
 					<List.ListTwo />

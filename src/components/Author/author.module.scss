@@ -61,9 +61,35 @@
           margin: 0;
         }
         .iconfont-size {
-          font-size: 16px;
+          font-size: 24px;
         }
       }
+    }
+
+    .footer-right {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      border-radius: 20px;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: var(--blog-white-op);
+      color: var(--blog-white);
+      z-index: 1;
+      transition: 0.3s;
+      cursor: pointer;
+
+      .iconfont-size {
+        margin-right: 8px;
+        font-size: 24px;
+        transform: rotateZ(90deg);
+      }
+
+      &:hover {
+        background: var(--blog-white);
+        color: var(--blog-black);
+      }
+
     }
   }
 }

@@ -29,7 +29,13 @@ const AuthorCard = () => {
 							/>
 						</IconButton>
 					</div>
-					<div>了解更多</div>
+					<a className={styles["footer-right"]}>
+						<Iconfont
+							type='icon-up-arrow'
+							className={styles["iconfont-size"]}
+						/>
+						了解更多
+					</a>
 				</div>
 			</div>
 		</Card>
