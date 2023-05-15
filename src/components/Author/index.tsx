@@ -10,7 +10,7 @@ const AuthorCard = () => {
 	return (
 		<Card>
 			<div className={styles["author-info"]}>
-				<div className={styles["hello"]}>晚上好！我是 🤝 专修交互与设计</div>
+				<div className={styles["hello"]}>🤝 专修拷贝和粘贴</div>
 				<div className={styles["title"]}>Fan mu</div>
 				<div className={styles["description"]}>这里是一段描述信息</div>
 				<div className={styles["description2"]}>再次描述</div>
