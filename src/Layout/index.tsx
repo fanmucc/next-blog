@@ -1,4 +1,5 @@
 import PageHeader from "./components/Header";
+import AuthorLink from "@/components/AuthorLink";
 
 import styles from "@/styles/layout.module.scss";
 
@@ -7,7 +8,9 @@ const Layout = (props: any) => {
 		<div className={styles["page"]} id='body-wrap'>
 			<PageHeader />
 			<main id='layout'>{props?.children}</main>
-			<footer className={styles["aa"]}>底部一些信息</footer>
+			<footer>
+				<AuthorLink />
+			</footer>
 		</div>
 	);
 };
