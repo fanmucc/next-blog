@@ -10,7 +10,7 @@ import MarkdownIt from "@/utils/markdowIt";
 
 import List from "../components/List";
 import Author from "@/components/Author";
-import Classification from "@/components/BusComponents/Classification";
+import Categories from "@/components/BusComponents/Categories";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,7 +58,7 @@ export default function Home(props: Iprops) {
 						}}
 					>
 						<Author />
-						<Classification small />
+						<Categories small />
 					</div>
 				</div>
 			</Layout>

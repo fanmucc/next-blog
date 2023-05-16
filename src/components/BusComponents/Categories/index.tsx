@@ -1,7 +1,7 @@
 // 分类
 import classNames from "classnames";
-import styles from "./classification.module.scss";
-const Classification = ({
+import styles from "./categories.module.scss";
+const Categories = ({
 	radius,
 	children,
 	className,
@@ -27,4 +27,4 @@ const Classification = ({
 	);
 };
 
-export default Classification;
+export default Categories;
