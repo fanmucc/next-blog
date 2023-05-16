@@ -1,26 +1,20 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import Layout from "@/Layout";
-import hello from "@/pages/api/mock/hello";
-import { log } from "console";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
 import MarkdownIt from "@/utils/markdowIt";
 
 import List from "../components/List";
 import Author from "@/components/Author";
-import Categories from "@/components/BusComponents/Categories";
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface Iprops extends AppProps {
 	markdown: string;
 }
 
-export default function Home(props: Iprops) {
-	// console.log(props, "===props");
+import classNames from "classnames";
+import styles from "@/styles/index.module.scss";
 
+export default function Home(props: Iprops) {
 	return (
 		<>
 			<Head>
@@ -37,22 +31,8 @@ export default function Home(props: Iprops) {
 				</style>
 			</Head>
 			<Layout>
-				<div
-					style={{
-						display: "grid",
-						gridTemplateColumns: "1fr 300px",
-						gridRowGap: "1rem",
-						gridColumnGap: "1rem",
-					}}
-				>
-					<div
-						style={{
-							display: "grid",
-							gridTemplateColumns: "1fr 1fr",
-							gridRowGap: "1rem",
-							gridColumnGap: "1rem",
-						}}
-					>
+				<div className={classNames(styles["index"], "slide-box")}>
+					<div className={classNames(styles["index-right"])}>
 						<List.ListTwo />
 						<List.ListTwo />
 						<List.ListTwo />
