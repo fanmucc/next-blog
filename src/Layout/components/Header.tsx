@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import styles from "@/styles/layout.module.scss";
 
-const PageHeader = () => {
+interface IPageHeader {
+	detail: Object;
+}
+
+const PageHeader = ({ detail }: IPageHeader) => {
 	const [scrollStatus, setScrollStatus] = useState(false);
-	const [detailPage, setDetailPage] = useState(true);
 	useEffect(() => {
 		const scrollTop = (event: any) => {
 			setScrollStatus(document.documentElement.scrollTop !== 0 ? true : false);
@@ -17,7 +20,7 @@ const PageHeader = () => {
 		<header
 			className={classNames(styles["not-top-img"], {
 				[styles["nav-fixed"]]: scrollStatus,
-				[styles["header-bg"]]: detailPage,
+				[styles["header-bg"]]: detail,
 			})}
 			id={styles["page-header"]}
 			style={{
@@ -27,24 +30,21 @@ const PageHeader = () => {
 			<nav id={styles["nav"]} className={styles["show"]}>
 				<div id={styles["nav-group"]}>
 					<div className={styles["nav-left"]}>
-						<a className={styles["back-home"]}>
-							<span>Yan Code</span>
+						<a className={styles["back-home"]} href='/'>
+							<span>Yan</span>
 						</a>
 					</div>
 					<div className={styles["nav-content"]}>
 						<div className={styles["nav-menus"]}>
 							<div className={styles["menus_items"]}>
 								<a className={styles["nav_item"]}>
-									<span>标签1</span>
+									<span>文章</span>
 								</a>
-								<a className={styles["nav_item"]}>
-									<span>标签2</span>
+								<a className={styles["nav_item"]} href='/categories'>
+									<span>分类</span>
 								</a>
-								<a className={styles["nav_item"]}>
-									<span>标签3</span>
-								</a>
-								<a className={styles["nav_item"]}>
-									<span>标签4</span>
+								<a className={styles["nav_item"]} href='/tags'>
+									<span>标签</span>
 								</a>
 							</div>
 						</div>
@@ -61,12 +61,10 @@ const PageHeader = () => {
 					<div id=''></div>
 					<div className={styles["nav-right"]}>
 						<div>icon1</div>
-						<div>icon2</div>
-						<div>icon3</div>
 					</div>
 				</div>
 			</nav>
-			{detailPage && (
+			{detail && (
 				<>
 					<div className='coverdiv loaded' id='coverdiv'>
 						<img

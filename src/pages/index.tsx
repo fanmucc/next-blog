@@ -40,25 +40,25 @@ export default function Home(props: Iprops) {
 				<div
 					style={{
 						display: "grid",
-						gridTemplateColumns: "1fr 1fr",
+						gridTemplateColumns: "1fr 300px",
 						gridRowGap: "1rem",
 						gridColumnGap: "1rem",
 					}}
 				>
-					<List.ListTwo />
-					<List.ListTwo />
-					<List.ListTwo />
-					<List.ListTwo />
-					<div
-						dangerouslySetInnerHTML={{ __html: props?.markdown || "" }}
-					></div>
 					<div
 						style={{
-							width: "300px",
+							display: "grid",
+							gridTemplateColumns: "1fr 1fr",
+							gridRowGap: "1rem",
+							gridColumnGap: "1rem",
 						}}
 					>
+						<List.ListTwo />
+						<List.ListTwo />
+						<List.ListTwo />
+					</div>
+					<div>
 						<Author />
-						<Categories small />
 					</div>
 				</div>
 			</Layout>
