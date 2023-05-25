@@ -1,8 +1,11 @@
+import Tags from "@/components/BusComponents/Tags";
+
+import classNames from "classnames";
 import styles from "@/styles/blog-list.module.scss";
 
-const ListOne = () => {
+const ListOne = ({ className }: any) => {
 	return (
-		<div className={styles["list-single"]}>
+		<div className={classNames(styles["list-single"], className)}>
 			<div className={styles["list-single-cover"]}>
 				<a className={styles["cover-a"]} href='' title='文章名'>
 					<img
@@ -22,8 +25,10 @@ const ListOne = () => {
 				</a>
 				<div className={styles["list-info"]}>
 					<div className={styles["tags"]}>
-						<div>文章标签多个</div>
-						<div>发布时间</div>
+						<div>
+							<Tags small />
+							<Tags small />
+						</div>
 					</div>
 				</div>
 			</div>

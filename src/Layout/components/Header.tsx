@@ -37,7 +37,7 @@ const PageHeader = ({ detail }: IPageHeader) => {
 					<div className={styles["nav-content"]}>
 						<div className={styles["nav-menus"]}>
 							<div className={styles["menus_items"]}>
-								<a className={styles["nav_item"]}>
+								<a className={styles["nav_item"]} href='/blog/list'>
 									<span>文章</span>
 								</a>
 								<a className={styles["nav_item"]} href='/categories'>
