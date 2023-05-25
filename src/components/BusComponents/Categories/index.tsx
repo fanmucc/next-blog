@@ -10,20 +10,9 @@ const Categories = ({
 	symbol = true,
 }: any) => {
 	return small ? (
-		<a
-			className={classNames(
-				styles["classification"],
-				{ ["classification-symbol"]: symbol },
-				className
-			)}
-		>
-			标签
-		</a>
+		<a className={classNames(styles["classification"], className)}>分类</a>
 	) : (
-		<a className={classNames(styles["classification-big"], className)}>
-			{symbol && <span className={styles["symbol"]}></span>}
-			标签<span className={styles["total"]}>83</span>
-		</a>
+		<a className={classNames(styles["classification-big"], className)}>分类</a>
 	);
 };
 

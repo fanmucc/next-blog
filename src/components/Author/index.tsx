@@ -18,14 +18,20 @@ const AuthorCard = () => {
 					<div className={styles["footer-left"]}>
 						<IconButton radius className={styles["button-icon"]}>
 							<Iconfont
-								type='icon-up-arrow'
+								type='icon-github'
 								className={styles["iconfont-size"]}
+								style={{
+									fontSize: "20px",
+								}}
 							/>
 						</IconButton>
 						<IconButton radius className={styles["button-icon"]}>
 							<Iconfont
-								type='icon-up-arrow'
+								type='icon-github'
 								className={styles["iconfont-size"]}
+								style={{
+									fontSize: "20px",
+								}}
 							/>
 						</IconButton>
 					</div>

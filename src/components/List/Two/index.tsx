@@ -1,3 +1,6 @@
+import Categories from "@/components/BusComponents/Categories";
+import Tags from "@/components/BusComponents/Tags";
+
 import styles from "@/styles/blog-list.module.scss";
 
 const ListTwo = () => {
@@ -14,8 +17,8 @@ const ListTwo = () => {
 			</div>
 			<div className={styles["list-info"]}>
 				<div className={styles["list-info-type"]}>
-					<span>文章分类</span>
-					<span>文章分类2</span>
+					<Categories small />
+					<Categories small />
 				</div>
 				<a
 					className={styles["list-title"]}
@@ -27,7 +30,10 @@ const ListTwo = () => {
 				</a>
 				<div className={styles["list-tags"]}>
 					<div className={styles["tags-left"]}>
-						<div>文章标签多个</div>
+						<div>
+							<Tags small />
+							<Tags small />
+						</div>
 						<div>发布时间</div>
 					</div>
 					<div className={styles["tags-right"]}>最新</div>
