@@ -4,10 +4,11 @@ import classNames from "classnames";
 import styles from "@/styles/layout.module.scss";
 
 interface IPageHeader {
-	detail: Object;
+	detail?: Object;
+	title?: string;
 }
 
-const PageHeader = ({ detail }: IPageHeader) => {
+const PageHeader = ({ detail, title }: IPageHeader) => {
 	const [scrollStatus, setScrollStatus] = useState(false);
 	useEffect(() => {
 		const scrollTop = (event: any) => {
@@ -54,7 +55,7 @@ const PageHeader = ({ detail }: IPageHeader) => {
 								// onClick='btf.scrollToDest(0, 500)'
 								data-pjax-state=''
 							>
-								严凡木 - 分享设计与科技生活
+								{title}
 							</a>
 						</div>
 					</div>

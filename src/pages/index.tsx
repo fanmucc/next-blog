@@ -30,7 +30,7 @@ export default function Home(props: Iprops) {
           `}
 				</style>
 			</Head>
-			<Layout>
+			<Layout title='严凡木 - 分享设计与科技生活'>
 				<div className={classNames(styles["index"], "slide-box")}>
 					<div className={classNames(styles["index-right"])}>
 						<List.ListTwo />

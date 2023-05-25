@@ -32,7 +32,7 @@ const BlogList = (props: Iprops) => {
           `} */}
 				</style>
 			</Head>
-			<Layout title=''>
+			<Layout title='所有文章'>
 				<div className={styles["blog-list-page"]}>
 					<div className={classNames(styles["list"], "slide-box")}>
 						<div className={styles["title"]}>
