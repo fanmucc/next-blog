@@ -1,6 +1,6 @@
 import Layout from "@/Layout";
 import Head from "next/head";
-import Categories from "@/components/BusComponents/Categories";
+import Tags from "@/components/BusComponents/Tags";
 
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
@@ -24,18 +24,18 @@ const CategoriesPage = () => {
 			<Layout>
 				<h1>分类</h1>
 				<div className={classNames(styles["categories-content"], "slide-box")}>
-					<Categories />
-					<Categories />
-					<Categories />
-					<Categories />
-					<Categories />
-					<Categories />
-					<Categories />
-					<Categories />
-					<Categories />
-					<Categories />
-					<Categories />
-					<Categories />
+					<Tags />
+					<Tags />
+					<Tags />
+					<Tags />
+					<Tags />
+					<Tags />
+					<Tags />
+					<Tags />
+					<Tags />
+					<Tags />
+					<Tags />
+					<Tags />
 				</div>
 			</Layout>
 		</>
