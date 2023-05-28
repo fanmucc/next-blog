@@ -22,8 +22,13 @@ const TagsPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Layout title='标签'>
-				<h1>标签</h1>
-				<div className={classNames(styles["categories-content"], "slide-box")}>
+				<h1 className='slide-box'>标签</h1>
+				<div
+					className={classNames(
+						styles["categories-content"],
+						"slide-box-content"
+					)}
+				>
 					<Tags />
 					<Tags />
 					<Tags />

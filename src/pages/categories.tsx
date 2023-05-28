@@ -22,8 +22,13 @@ const CategoriesPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Layout title='分类'>
-				<h1>分类</h1>
-				<div className={classNames(styles["categories-content"], "slide-box")}>
+				<h1 className='slide-box'>分类</h1>
+				<div
+					className={classNames(
+						styles["categories-content"],
+						"slide-box-content"
+					)}
+				>
 					<Tags />
 					<Tags />
 					<Tags />

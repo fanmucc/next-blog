@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SimpleMenusTooltip from "@/components/BusComponents/SimpleMenusTooltip";
 
 import classNames from "classnames";
 import styles from "@/styles/layout.module.scss";
@@ -28,7 +29,13 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 				backgroundImage: `url('https://p.zhheo.com/aAWBR820890481681098008701.png!cover')`,
 			}}
 		>
-			<nav id={styles["nav"]} className={styles["show"]}>
+			<nav
+				id={styles["nav"]}
+				className={styles["show"]}
+				style={{
+					overflow: `${!scrollStatus ? "unset" : "hidden"}`,
+				}}
+			>
 				<div id={styles["nav-group"]}>
 					<div className={styles["nav-left"]}>
 						<a className={styles["back-home"]} href='/'>
@@ -38,26 +45,55 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 					<div className={styles["nav-content"]}>
 						<div className={styles["nav-menus"]}>
 							<div className={styles["menus_items"]}>
-								<a className={styles["nav_item"]} href='/blog/list'>
-									<span>文章</span>
-								</a>
-								<a className={styles["nav_item"]} href='/categories'>
-									<span>分类</span>
-								</a>
-								<a className={styles["nav_item"]} href='/tags'>
-									<span>标签</span>
-								</a>
+								<SimpleMenusTooltip title='文章'>
+									<ul className={styles["item-tooltip-content"]}>
+										<li>
+											<a href='/blog/list'>
+												<span>全部文章</span>
+											</a>
+										</li>
+										<li>
+											<a href='/categories'>
+												<span>全部分类</span>
+											</a>
+										</li>
+										<li>
+											<a href='/tags'>
+												<span>全部标签</span>
+											</a>
+										</li>
+									</ul>
+								</SimpleMenusTooltip>
+								<SimpleMenusTooltip title='系列' />
+								<SimpleMenusTooltip title='我的' />
+								{/* <div className={styles["menus_items_children"]}>
+									<a className={styles["nav_item"]} href='/blog/list'>
+										<span>系列</span>
+									</a>
+								</div> */}
+								{/* <div className={styles["menus_items_children"]}>
+									<a className={styles["nav_item"]} href='/categories'>
+										<span>我的</span>
+									</a>
+								</div> */}
+								{/* <div className={styles["menus_items_children"]}>
+									<a className={styles["nav_item"]} href='/tags'>
+										<span>标签</span>
+									</a>
+								</div> */}
 							</div>
 						</div>
-						<div className={styles["nav-title"]}>
-							<a
-								id='page-name-text'
-								// onClick='btf.scrollToDest(0, 500)'
-								data-pjax-state=''
-							>
-								{title}
-							</a>
-						</div>
+						{scrollStatus && (
+							<div className={styles["nav-title"]}>
+								<a
+									id='page-name-text'
+									// onClick='btf.scrollToDest(0, 500)'
+									data-pjax-state=''
+								>
+									{title}
+								</a>
+							</div>
+						)}
 					</div>
 					<div id=''></div>
 					<div className={styles["nav-right"]}>

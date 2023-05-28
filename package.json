@@ -15,6 +15,7 @@
     "classnames": "^2.3.2",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "framer-motion": "^10.12.16",
     "highlight.js": "^11.8.0",
     "markdown-it": "^13.0.1",
     "markdown-it-attrs": "^4.1.6",
