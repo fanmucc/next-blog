@@ -64,7 +64,7 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 										</li>
 									</ul>
 								</SimpleMenusTooltip>
-								<SimpleMenusTooltip title='系列' />
+								<SimpleMenusTooltip title='系列' href='/series' />
 								<SimpleMenusTooltip title='我的' />
 								{/* <div className={styles["menus_items_children"]}>
 									<a className={styles["nav_item"]} href='/blog/list'>

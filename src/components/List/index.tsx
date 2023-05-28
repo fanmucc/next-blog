@@ -5,5 +5,5 @@ import Series from "./Series";
 export default {
 	ListOne: ListOne,
 	ListTwo: ListTwo,
-	Series: Series,
+	ListSeries: Series,
 };

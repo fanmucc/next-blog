@@ -178,4 +178,45 @@
 
   }
 
+  // 系列列表
+  .series-list {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--blog-theme-op);
+
+    .series-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .series-open {
+        color: var(--blog-theme);
+        font-size: 0.7rem;
+        &:hover {
+          text-decoration-line: underline;
+        }
+      }
+
+    }
+
+    .series-list-box {
+      height: 100px;
+      overflow: hidden;
+      transition: height 0.3s ease-in;
+      &.series-list-box-open {
+        height: initial;
+        transition: height 0.3s ease-in;
+      }
+      li {
+        a {
+          span {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
