@@ -1,3 +1,6 @@
+import request from "@/utils/axios";
+import { useEffect } from "react";
+
 import Head from "next/head";
 import Layout from "@/Layout";
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -15,6 +18,19 @@ import classNames from "classnames";
 import styles from "@/styles/index.module.scss";
 
 export default function Home(props: Iprops) {
+	useEffect(() => {
+		request({
+			url: "/api/mock/hello",
+			method: "get",
+		})
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, []);
+
 	return (
 		<>
 			<Head>
@@ -53,13 +69,24 @@ export async function getServerSideProps({
 	req: NextApiRequest;
 	res: NextApiResponse;
 }) {
-	// console.log(req, res, "控制台输出");
-	// var result = MarkdownIt("::: spoiler click me\n*content*\n:::\n");
-	var result = MarkdownIt(`# 我是标题`);
-	// var result = MarkdownIt(`@ header
-	// contentTwo
-	// `);
-	// console.log(result);
+	console.log(req?.query, "控制台输出");
+
+	// const a = request({
+	// 	url: "/api/mock/hello",
+	// 	method: "get",
+	// })
+	// 	.then((res) => {
+	// 		console.log(res);
+	// 	})
+	// 	.catch((err) => {
+	// 		console.log(err);
+	// 	});
+	// fetch(`/api/hello`)
+	// 	.then((response) => response.json())
+	// 	.then((data) => {
+	// 		console.log(data);
+	// 	})
+	// 	.catch((error) => console.error(error));
 
 	res.setHeader(
 		"Cache-Control",
@@ -73,7 +100,6 @@ export async function getServerSideProps({
 					id: 1,
 				},
 			],
-			markdown: result,
-		}, // will be passed to the page component as props
+		},
 	};
 }
