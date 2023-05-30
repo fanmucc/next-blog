@@ -4,7 +4,7 @@ const request = (axiosConfig: AxiosRequestConfig<any>) => {
   console.log(axiosConfig)
   // 创建axios实例，并填入默认url
   const service = axios.create({
-    baseURL: '/',
+    baseURL: 'http://localhost:3000/',
     timeout: 10000, // 超时时间
   })
 
@@ -18,7 +18,7 @@ const request = (axiosConfig: AxiosRequestConfig<any>) => {
 
   // 相应拦截
   service.interceptors.response.use(response => {
-    return response
+    return Promise.resolve(response?.data)
   }, error => {
     return Promise.reject(error)
   })
