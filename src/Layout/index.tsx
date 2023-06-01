@@ -1,7 +1,7 @@
 import PageHeader from "./components/Header";
 import AuthorLink from "@/components/AuthorLink";
 
-import styles from "@/styles/layout.module.scss";
+import styles from "./layout.module.scss";
 
 const Layout = (props: any) => {
 	return (

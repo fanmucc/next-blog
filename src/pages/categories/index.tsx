@@ -6,7 +6,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
 
 import classNames from "classnames";
-import styles from "@/styles/categories.module.scss";
+import styles from "@/styles/categories-page.module.scss";
 
 interface Iprops extends AppProps {
 	markdown?: string;

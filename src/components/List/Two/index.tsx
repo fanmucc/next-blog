@@ -1,7 +1,7 @@
 import Categories from "@/components/BusComponents/Categories";
 import Tags from "@/components/BusComponents/Tags";
 
-import styles from "@/styles/blog-list.module.scss";
+import styles from "../index.module.scss";
 
 const ListTwo = () => {
 	return (

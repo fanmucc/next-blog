@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SimpleMenusTooltip from "@/components/BusComponents/SimpleMenusTooltip";
 
 import classNames from "classnames";
-import styles from "@/styles/layout.module.scss";
+import styles from "../layout.module.scss";
 
 interface IPageHeader {
 	detail?: Object;

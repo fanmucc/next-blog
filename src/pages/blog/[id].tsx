@@ -8,7 +8,7 @@ import Markdown from "@/components/Markdown";
 
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
-import { log } from "console";
+
 interface Iprops extends AppProps {
 	markdown: string;
 }

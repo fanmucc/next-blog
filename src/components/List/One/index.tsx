@@ -1,7 +1,7 @@
 import Tags from "@/components/BusComponents/Tags";
 
 import classNames from "classnames";
-import styles from "@/styles/blog-list.module.scss";
+import styles from "../index.module.scss";
 
 const ListOne = ({ className }: any) => {
 	return (
