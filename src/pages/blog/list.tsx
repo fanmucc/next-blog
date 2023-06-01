@@ -1,7 +1,3 @@
-import markdownIt from "@/utils/markdowIt";
-import path from "path";
-import { getMdFiles } from "@/utils";
-
 import Layout from "@/Layout";
 import Head from "next/head";
 import List from "@/components/List";

@@ -2,7 +2,6 @@ import MarkdownIt from 'markdown-it';
 import MarkdownItContainer from 'markdown-it-container'
 import markdownItAttrs from 'markdown-it-attrs'
 import Token from 'markdown-it/lib/token';
-import { log } from 'console';
 const hljs = require('highlight.js');
 
 export default function renderMarkdown(markdown: string): string {

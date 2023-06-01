@@ -1,0 +1,40 @@
+const tags = [
+  {
+    id: 1,
+    name: '学习'
+  },
+  {
+    id: 2,
+    name: '日常'
+  },
+  {
+    id: 3,
+    name: 'Bug'
+  },
+  {
+    id: 4,
+    name: '杂记'
+  },
+  {
+    id: 5,
+    name: '随笔'
+  },
+  {
+    id: 6,
+    name: '心情'
+  },
+  {
+    id: 7,
+    name: '动画'
+  },
+  {
+    id: 8,
+    name: '效果'
+  },
+  {
+    id: 9,
+    name: '系统记录'
+  },
+]
+
+export default tags
