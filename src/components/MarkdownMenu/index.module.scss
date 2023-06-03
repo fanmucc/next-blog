@@ -1,0 +1,20 @@
+.markdown-menus {
+  position: sticky;
+  top: 80px;
+  margin-top: 0 !important;
+  padding: 0.5rem 0.5rem !important;
+  display: inline-block;
+  width: 100%;
+  .menus-list {
+    .menus-item {
+      transition: all 0.3s ease 0s;
+      font-size: 16px;
+      &.active {
+        color: var(--blog-lighttext);
+        transition: all 0.3s ease 0s;
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+  }
+}

@@ -12,12 +12,13 @@ interface IPageHeader {
 const PageHeader = ({ detail, title }: IPageHeader) => {
 	const [scrollStatus, setScrollStatus] = useState(false);
 	useEffect(() => {
-		const scrollTop = (event: any) => {
+		const scrollTop = () => {
 			setScrollStatus(document.documentElement.scrollTop !== 0 ? true : false);
 		};
+		scrollTop();
 		document.addEventListener("scroll", scrollTop);
 		() => document.removeEventListener("scroll", scrollTop);
-	});
+	}, []);
 	return (
 		<header
 			className={classNames(styles["not-top-img"], {

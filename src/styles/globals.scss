@@ -562,3 +562,16 @@ sub, sup {
   left: 0;
   box-shadow: 110px -130px 300px 60px var(--hello-main) inset;
 }
+
+.card {
+  box-shadow: var(--blog-shadow-border);
+  background: var(--blog-card-bg);
+  border: var(--style-border);
+  transition: 0.3s;
+  border-radius: 12px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+}

@@ -8,7 +8,11 @@ const Layout = (props: any) => {
 		<div className={styles["page"]} id='body-wrap'>
 			<PageHeader detail={props?.detail} title={props.title} />
 			<main id='layout'>{props?.children}</main>
-			<footer>
+			<footer
+				style={{
+					margin: "100px 0",
+				}}
+			>
 				<AuthorLink />
 			</footer>
 		</div>

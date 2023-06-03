@@ -10,7 +10,7 @@ const ListTwo = () => {
 				<a href='' title='文章名'>
 					<img
 						className={styles["img-bg"]}
-						src='https://p.zhheo.com/aAWBR820890481681098008701.png!cover'
+						src='https://p.zhheo.com/GkJkeS25890581685436538029.png!cover'
 						alt='文章名'
 					/>
 				</a>

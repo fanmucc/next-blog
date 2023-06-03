@@ -1,9 +1,4 @@
-import { log } from "console";
-
-const fs = require('fs');
-const path = require('path');
-
-export const getMdFiles = async (dirPath: any): Promise<any> => {
+export const getMdFiles = async (fs: any, path: any, dirPath: any): Promise<any> => {
   const files = await fs.promises.readdir(dirPath); // 读取文件夹下的所有文件
   const mdFiles = [];
 
@@ -15,10 +10,29 @@ export const getMdFiles = async (dirPath: any): Promise<any> => {
       mdFiles.push(text);
     } else if (stat.isDirectory()) { // 如果是文件夹则递归调用函数
       // log('文件夹')
-      mdFiles.push(...await getMdFiles(filePath));
+      mdFiles.push(...await getMdFiles(fs, path, filePath));
     }
   }
 
   return mdFiles;
+}
+
+export const isInViewport = (dom: Element): boolean => {
+  // 兼容写法
+  let viewPortHeight = window.innerHeight || dom.clientHeight
+  let viewPortWidth = window.innerWidth || dom.clientWidth
+  let {
+    top,
+    left,
+    bottom,
+    right
+  } = dom.getBoundingClientRect()
+
+  return (
+    top >= 0 &&
+    left >= 0 &&
+    bottom <= viewPortHeight &&
+    right <= viewPortWidth
+  )
 }
 

@@ -35,6 +35,10 @@ const tags = [
     id: 9,
     name: '系统记录'
   },
+  {
+    id: 10,
+    name: '面经'
+  }
 ]
 
 export default tags
