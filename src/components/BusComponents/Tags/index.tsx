@@ -2,9 +2,8 @@
 import classNames from "classnames";
 import styles from "./tags.module.scss";
 const Tags = ({
-	radius,
-	children,
 	className,
+	name = "标签",
 	href,
 	small,
 	symbol = true,
@@ -17,12 +16,13 @@ const Tags = ({
 				className
 			)}
 		>
-			标签
+			{name}
 		</a>
 	) : (
 		<a className={classNames(styles["tags-big"], className)}>
 			{symbol && <span className={styles["symbol"]}></span>}
-			标签<span className={styles["total"]}>83</span>
+			{name}
+			<span className={styles["total"]}>83</span>
 		</a>
 	);
 };

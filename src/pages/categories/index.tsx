@@ -1,3 +1,5 @@
+import request from "@/utils/axios";
+
 import Layout from "@/Layout";
 import Head from "next/head";
 import Tags from "@/components/BusComponents/Tags";
@@ -8,11 +10,11 @@ import type { AppProps } from "next/app";
 import classNames from "classnames";
 import styles from "@/styles/categories-page.module.scss";
 
-interface Iprops extends AppProps {
-	markdown?: string;
+interface ICategoriesPage extends AppProps {
+	categories?: { id: number; name: string }[];
 }
 
-const CategoriesPage = () => {
+const CategoriesPage = ({ categories }: ICategoriesPage) => {
 	return (
 		<>
 			<Head>
@@ -29,18 +31,9 @@ const CategoriesPage = () => {
 						"slide-box-content"
 					)}
 				>
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
+					{categories?.map((i: any) => {
+						return <Tags key={i?.id} name={i?.name} />;
+					})}
 				</div>
 			</Layout>
 		</>
@@ -49,14 +42,19 @@ const CategoriesPage = () => {
 
 export default CategoriesPage;
 
-export async function getServerSideProps({
-	req,
-	res,
-}: {
-	req: NextApiRequest;
-	res: NextApiResponse;
-}) {
+export const getContent = async () => {
+	const data = await request({
+		url: "/api/mock/categories",
+		method: "GET",
+	});
+	return data;
+};
+
+// 不需要频繁请求
+export const getStaticProps = async () => {
 	return {
-		props: {},
+		props: {
+			categories: await getContent(),
+		},
 	};
-}
+};

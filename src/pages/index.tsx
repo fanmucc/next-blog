@@ -22,10 +22,6 @@ import classNames from "classnames";
 import styles from "@/styles/index-page.module.scss";
 
 export default function Home(props: Iprops) {
-	useEffect(() => {
-		console.log("====", props);
-	}, []);
-
 	return (
 		<>
 			<Head>
@@ -66,47 +62,49 @@ export const getContent = async () => {
 	return a;
 };
 
-export const getServerSideProps: GetServerSideProps<any> = async () => {
-	// const a = request({
-	// 	url: "/api/mock/hello",
-	// 	method: "get",
-	// })
-	// 	.then((res) => {
-	// 		console.log(res);
-	// 	})
-	// 	.catch((err) => {
-	// 		console.log(err);
-	// 	});
-	// fetch(`/api/hello`)
-	// 	.then((response) => response.json())
-	// 	.then((data) => {
-	// 		console.log(data);
-	// 	})
-	// 	.catch((error) => console.error(error));
-	// getStaticProps
-	return {
-		props: {
-			headerMenus: [
-				{
-					lable: "测试",
-					id: 1,
-					data: await getContent(),
-				},
-			],
-		},
-	};
-};
-
-//
-// export const getStaticProps = async () => {
-// 	let data = await fetch("http://localhost:3000/api/mock/hello");
-// 	let propsA = await data?.json();
+// export const getServerSideProps: GetServerSideProps<any> = async () => {
+// 	// const a = request({
+// 	// 	url: "/api/mock/hello",
+// 	// 	method: "get",
+// 	// })
+// 	// 	.then((res) => {
+// 	// 		console.log(res);
+// 	// 	})
+// 	// 	.catch((err) => {
+// 	// 		console.log(err);
+// 	// 	});
+// 	// fetch(`/api/hello`)
+// 	// 	.then((response) => response.json())
+// 	// 	.then((data) => {
+// 	// 		console.log(data);
+// 	// 	})
+// 	// 	.catch((error) => console.error(error));
+// 	// getStaticProps
 // 	return {
 // 		props: {
-// 			a: propsA,
+// 			headerMenus: [
+// 				{
+// 					lable: "测试",
+// 					id: 1,
+// 					data: await getContent(),
+// 				},
+// 			],
 // 		},
 // 	};
 // };
+
+//
+export const getStaticProps = async () => {
+	let data = await fetch("http://localhost:3000/api/mock/hello");
+	let propsA = await data?.json();
+	console.log(propsA);
+
+	return {
+		props: {
+			a: propsA,
+		},
+	};
+};
 
 // 执行时机和位置：
 

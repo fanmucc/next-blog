@@ -17,6 +17,22 @@ export const getMdFiles = async (fs: any, path: any, dirPath: any): Promise<any>
   return mdFiles;
 }
 
+// 获取具体某些文件下的内容
+export const getSpecificFile = async (fs: any, path: any, dirPath: string): Promise<any> => {
+  const filePath = path.join(dirPath);
+  let fileData = ''
+  try {
+    fileData = await fs.readFileSync(filePath, {
+      encoding: "utf-8",
+    })
+  } catch (err) {
+    return []
+  }
+
+  return JSON.parse(fileData)
+
+}
+
 export const isInViewport = (dom: Element): boolean => {
   // 兼容写法
   let viewPortHeight = window.innerHeight || dom.clientHeight

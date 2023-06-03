@@ -1,3 +1,5 @@
+import request from "@/utils/axios";
+
 import Layout from "@/Layout";
 import Head from "next/head";
 import Tags from "@/components/BusComponents/Tags";
@@ -6,13 +8,13 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import type { AppProps } from "next/app";
 
 import classNames from "classnames";
-import styles from "@/styles/categories.module.scss";
+import styles from "@/styles/categories-page.module.scss";
 
-interface Iprops extends AppProps {
-	markdown?: string;
+interface ITagsPage extends AppProps {
+	tags?: { id: number; name: string }[];
 }
 
-const TagsPage = () => {
+const TagsPage = ({ tags }: ITagsPage) => {
 	return (
 		<>
 			<Head>
@@ -29,18 +31,9 @@ const TagsPage = () => {
 						"slide-box-content"
 					)}
 				>
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
-					<Tags />
+					{tags?.map((i: any) => {
+						return <Tags key={i?.id} name={i?.name} />;
+					})}
 				</div>
 			</Layout>
 		</>
@@ -49,14 +42,19 @@ const TagsPage = () => {
 
 export default TagsPage;
 
-export async function getServerSideProps({
-	req,
-	res,
-}: {
-	req: NextApiRequest;
-	res: NextApiResponse;
-}) {
+export const getContent = async () => {
+	const data = await request({
+		url: "/api/mock/tags",
+		method: "GET",
+	});
+	return data;
+};
+
+// 不需要频繁请求
+export const getStaticProps = async () => {
 	return {
-		props: {},
+		props: {
+			tags: await getContent(),
+		},
 	};
-}
+};

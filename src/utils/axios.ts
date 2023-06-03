@@ -5,14 +5,13 @@ const request = (axiosConfig: AxiosRequestConfig<any>) => {
   // 创建axios实例，并填入默认url
   const service = axios.create({
     baseURL: 'http://localhost:3000/',
-    timeout: 10000, // 超时时间
+    timeout: 1000, // 超时时间
   })
 
   // 请求拦截
   service.interceptors.request.use(config => {
     return config
   }, error => {
-
     return Promise.reject(error)
   })
 
