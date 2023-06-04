@@ -7,6 +7,7 @@ const Tags = ({
 	href,
 	small,
 	symbol = true,
+	num = 0,
 }: any) => {
 	return small ? (
 		<a
@@ -22,7 +23,7 @@ const Tags = ({
 		<a className={classNames(styles["tags-big"], className)}>
 			{symbol && <span className={styles["symbol"]}></span>}
 			{name}
-			<span className={styles["total"]}>83</span>
+			{num ? <span className={styles["total"]}>{num}</span> : null}
 		</a>
 	);
 };

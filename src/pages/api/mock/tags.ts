@@ -14,5 +14,11 @@ export default async function tags(
   const fs = require("fs");
   const path = require("path");
   let data = await getSpecificFile(fs, path, "./src/data/tags.json");
-  res.status(200).json(data)
+  let newData = data?.map((i: any) => {
+    return {
+      ...i,
+      articlesNum: i?.num || 0
+    }
+  })
+  res.status(200).json(newData)
 }

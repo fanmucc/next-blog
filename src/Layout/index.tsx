@@ -10,7 +10,7 @@ const Layout = (props: any) => {
 			<main id='layout'>{props?.children}</main>
 			<footer
 				style={{
-					margin: "100px 0",
+					margin: "100px 0 200px",
 				}}
 			>
 				<AuthorLink />

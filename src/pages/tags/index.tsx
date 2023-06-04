@@ -32,7 +32,9 @@ const TagsPage = ({ tags }: ITagsPage) => {
 					)}
 				>
 					{tags?.map((i: any) => {
-						return <Tags key={i?.id} name={i?.name} />;
+						return (
+							<Tags key={i?.id} name={i?.name} num={i?.articlesNum || 0} />
+						);
 					})}
 				</div>
 			</Layout>
