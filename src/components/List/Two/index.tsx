@@ -3,40 +3,47 @@ import Tags from "@/components/BusComponents/Tags";
 
 import styles from "../index.module.scss";
 
-const ListTwo = () => {
+import type { IBlog, ICategories } from "@/utils/ts.d.ts";
+
+interface IBlogDetails {
+	detail: IBlog;
+}
+
+const ListTwo = ({ detail }: IBlogDetails) => {
 	return (
 		<div className={styles["list-multiple"]}>
 			<div className={styles["list-cover"]}>
-				<a href='' title='文章名'>
+				<a href={detail?.href} title={detail?.title}>
 					<img
 						className={styles["img-bg"]}
-						src='https://p.zhheo.com/GkJkeS25890581685436538029.png!cover'
-						alt='文章名'
+						src={detail?.img}
+						alt={detail?.title}
 					/>
 				</a>
 			</div>
 			<div className={styles["list-info"]}>
 				<div className={styles["list-info-type"]}>
-					<Categories small />
-					<Categories small />
+					{detail?.categories?.map((i: ICategories) => {
+						return <Categories small key={i?.id} id={i?.id} name={i?.name} />;
+					})}
 				</div>
 				<a
 					className={styles["list-title"]}
-					href='/p/63718cef.html'
-					title='中国地图矢量图下载：省地图、市级地图、区级地图矢量图'
-					data-pjax-state=''
+					href={detail?.href}
+					title={detail?.title}
 				>
-					中国地图矢量图下载：省地图、市级地图、区级地图矢量图中国地图矢量图下载：省地图、市级地图、区级地图矢量图中国地图矢量图下载：省地图、市级地图、区级地图矢量图
+					{detail?.title}
 				</a>
 				<div className={styles["list-tags"]}>
 					<div className={styles["tags-left"]}>
 						<div>
-							<Tags small />
-							<Tags small />
+							{detail?.tags?.map((i: ICategories) => {
+								return <Tags small key={i?.id} id={i?.id} name={i?.name} />;
+							})}
 						</div>
-						<div>发布时间</div>
+						{/* <div>发布时间</div> */}
 					</div>
-					<div className={styles["tags-right"]}>最新</div>
+					<div className={styles["tags-right"]}>{detail?.createTime}</div>
 				</div>
 			</div>
 		</div>

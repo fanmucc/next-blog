@@ -25,6 +25,13 @@ const request = (axiosConfig: AxiosRequestConfig<any>) => {
   return service(axiosConfig)
 }
 
-
+export const get = (url: string, params?: any, config?: any) => {
+  return request({
+    method: 'get',
+    url: url,
+    ...params,
+    ...config
+  })
+}
 
 export default request

@@ -1,3 +1,5 @@
+import { get } from "@/utils/axios";
+
 import Layout from "@/Layout";
 import Head from "next/head";
 import List from "@/components/List";
@@ -5,14 +7,15 @@ import Author from "@/components/Author";
 
 import type { AppProps } from "next/app";
 
+import type { IBlog } from "@/utils/ts.d.ts";
 interface Iprops extends AppProps {
-	markdown: string;
+	list: IBlog[];
 }
 
 import classNames from "classnames";
 import styles from "@/styles/blog-list-page.module.scss";
 
-const BlogList = (props: Iprops) => {
+const BlogList = ({ list }: Iprops) => {
 	return (
 		<>
 			<Head>
@@ -33,13 +36,12 @@ const BlogList = (props: Iprops) => {
 					<div className={classNames(styles["list"], "slide-box")}>
 						<div className={styles["title"]}>
 							文章
-							<sup>111</sup>
+							<sup>{list?.length || 0}</sup>
 						</div>
 						<div className={styles["blog-content"]}>
-							<List.ListOne />
-							<List.ListOne />
-							<List.ListOne />
-							<List.ListOne />
+							{list?.map((i: IBlog) => {
+								return <List.ListOne key={i?.id} detail={i} />;
+							})}
 						</div>
 					</div>
 					<div className='slide-box-content'>
@@ -52,3 +54,16 @@ const BlogList = (props: Iprops) => {
 };
 
 export default BlogList;
+
+export const getContent = async () => {
+	const data = await get("/api/mock/blog");
+	return data;
+};
+
+export const getStaticProps = async () => {
+	return {
+		props: {
+			list: await getContent(),
+		},
+	};
+};

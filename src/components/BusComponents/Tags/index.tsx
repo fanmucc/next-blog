@@ -11,6 +11,7 @@ const Tags = ({
 }: any) => {
 	return small ? (
 		<a
+			href={"/tags"}
 			className={classNames(
 				styles["tags"],
 				{ [styles["tags-symbol"]]: symbol },
@@ -20,7 +21,7 @@ const Tags = ({
 			{name}
 		</a>
 	) : (
-		<a className={classNames(styles["tags-big"], className)}>
+		<a href={"/tags"} className={classNames(styles["tags-big"], className)}>
 			{symbol && <span className={styles["symbol"]}></span>}
 			{name}
 			{num ? <span className={styles["total"]}>{num}</span> : null}

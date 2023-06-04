@@ -3,32 +3,43 @@ import Tags from "@/components/BusComponents/Tags";
 import classNames from "classnames";
 import styles from "../index.module.scss";
 
-const ListOne = ({ className }: any) => {
+import type { IBlog, ICategories } from "@/utils/ts.d.ts";
+
+interface IBlogDetails {
+	detail: IBlog;
+	className?: string;
+}
+
+const ListOne = ({ className, detail }: IBlogDetails) => {
 	return (
 		<div className={classNames(styles["list-single"], className)}>
 			<div className={styles["list-single-cover"]}>
-				<a className={styles["cover-a"]} href='' title='文章名'>
+				<a
+					className={styles["cover-a"]}
+					href={detail?.href}
+					title={detail?.title}
+				>
 					<img
 						className={styles["img-bg"]}
-						src='https://p.zhheo.com/aAWBR820890481681098008701.png!cover'
-						alt='文章名'
+						src={detail?.img}
+						alt={detail?.title}
 					/>
 				</a>
 			</div>
 			<div className={styles["list-single-content"]}>
 				<a
 					className={styles["list-title"]}
-					href='/p/63718cef.html'
-					title='中国地图矢量图下载：省地图、市级地图、区级地图矢量图'
+					href={detail?.href}
+					title={detail?.title}
 				>
-					中国地图矢量图下载：省地图、市级地图、区级地图矢量图中国地图矢量图下载：省地图、市级地图、区级地图矢量图中国地图矢量图下载：省地图、市级地图、区级地图矢量图
+					{detail?.title}
 				</a>
 				<div className={styles["list-info"]}>
 					<div className={styles["tags"]}>
-						<div>
-							<Tags small />
-							<Tags small />
-						</div>
+						{detail?.tags?.map((i: ICategories) => {
+							return <Tags small key={i?.id} id={i?.id} name={i?.name} />;
+						})}
+						<div className={styles["list-info-date"]}>{detail?.createTime}</div>
 					</div>
 				</div>
 			</div>
