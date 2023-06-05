@@ -1,3 +1,4 @@
+import Image from "next/legacy/image";
 import Categories from "@/components/BusComponents/Categories";
 import Tags from "@/components/BusComponents/Tags";
 
@@ -14,11 +15,19 @@ const ListTwo = ({ detail }: IBlogDetails) => {
 		<div className={styles["list-multiple"]}>
 			<div className={styles["list-cover"]}>
 				<a href={detail?.href} title={detail?.title}>
-					<img
+					<Image
+						className={styles["img-bg"]}
+						width={1000}
+						height={450}
+						src={detail?.img}
+						alt={detail?.title}
+						loading='lazy'
+					/>
+					{/* <img
 						className={styles["img-bg"]}
 						src={detail?.img}
 						alt={detail?.title}
-					/>
+					/> */}
 				</a>
 			</div>
 			<div className={styles["list-info"]}>

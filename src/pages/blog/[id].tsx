@@ -44,15 +44,13 @@ const Blog = (props: Iprops) => {
 
 export default Blog;
 
-export async function getServerSideProps({
-	req,
-	res,
-}: {
-	req: NextApiRequest;
-	res: NextApiResponse;
-}) {
+export async function getServerSideProps(context) {
 	// console.log(req, res, "控制台输出");
 	// var result = MarkdownIt("::: spoiler click me\n*content*\n:::\n");
+	const { params } = context;
+	const { id } = params; // 获取动态路由参数
+	console.log(id, "===id");
+
 	const fs = require("fs");
 	const path = require("path");
 	const pathUrl = path.join("./src/markdown");
@@ -63,15 +61,7 @@ export async function getServerSideProps({
 			a = files[0];
 		})
 		.catch((err) => console.error(err));
-	// console.log(files);
 	var result = markdownIt(a);
-
-	res.setHeader(
-		"Cache-Control",
-		"public, s-maxage=10, stale-while-revalidate=59"
-	);
-
-	// log(a);
 	return {
 		props: {
 			headerMenus: [
@@ -84,3 +74,46 @@ export async function getServerSideProps({
 		}, // will be passed to the page component as props
 	};
 }
+
+// export async function getServerSideProps({
+// 	req,
+// 	res,
+// }: {
+// 	req: NextApiRequest;
+// 	res: NextApiResponse;
+// }) {
+// 	console.log(req.params);
+// 	// console.log(req, res, "控制台输出");
+// 	// var result = MarkdownIt("::: spoiler click me\n*content*\n:::\n");
+// 	const fs = require("fs");
+// 	const path = require("path");
+// 	const pathUrl = path.join("./src/markdown");
+// 	let a = "";
+// 	// 调用函数
+// 	let files = await getMdFiles(fs, path, pathUrl)
+// 		.then((files) => {
+// 			a = files[0];
+// 		})
+// 		.catch((err) => console.error(err));
+// 	// console.log(files);
+// 	var result = markdownIt(a);
+
+// 	// 设置缓存
+// 	res.setHeader(
+// 		"Cache-Control",
+// 		"public, s-maxage=10, stale-while-revalidate=59"
+// 	);
+
+// 	// log(a);
+// 	return {
+// 		props: {
+// 			headerMenus: [
+// 				{
+// 					lable: "测试",
+// 					id: 1,
+// 				},
+// 			],
+// 			markdown: result,
+// 		}, // will be passed to the page component as props
+// 	};
+// }

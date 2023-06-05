@@ -1,3 +1,4 @@
+import Image from "next/legacy/image";
 import Tags from "@/components/BusComponents/Tags";
 
 import classNames from "classnames";
@@ -19,10 +20,18 @@ const ListOne = ({ className, detail }: IBlogDetails) => {
 					href={detail?.href}
 					title={detail?.title}
 				>
-					<img
+					{/* <img
 						className={styles["img-bg"]}
+						src={"https://p.zhheo.com/GkJkeS25890581685436538029.png!cover"}
+						alt={detail?.title}
+					/> */}
+					<Image
+						className={styles["img-bg"]}
+						width={300}
+						height={160}
 						src={detail?.img}
 						alt={detail?.title}
+						loading='lazy'
 					/>
 				</a>
 			</div>

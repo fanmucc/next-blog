@@ -12,6 +12,16 @@ const regexEqual = (x, y) =>
 
 const nextConfig = {
 	reactStrictMode: true,
+	// images: {
+	// remotePatterns: [
+	// 	{
+	// 		protocol: "https",
+	// 		hostname: "p.zhheo.com",
+	// 		port: "",
+	// 		pathname: "/**",
+	// 	},
+	// ],
+	// },
 	webpack(config) {
 		const sassRules = config.module.rules
 			.find((rule) => typeof rule.oneOf === "object")
