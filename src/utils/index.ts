@@ -28,9 +28,18 @@ export const getSpecificFile = async (fs: any, path: any, dirPath: string): Prom
   } catch (err) {
     return []
   }
-
   return JSON.parse(fileData)
+}
 
+export const getSpecificFileMarkdown = async (fs: any, path: any, dirPath: string): Promise<any> => {
+  const filePath = path.join(dirPath);
+  let fileData = ''
+  try {
+    fileData = await fs.readFileSync(filePath, "utf8")
+  } catch (err) {
+    return ''
+  }
+  return fileData
 }
 
 export const isInViewport = (dom: Element): boolean => {

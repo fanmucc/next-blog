@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
+
+// 组件
 import SimpleMenusTooltip from "@/components/BusComponents/SimpleMenusTooltip";
+import Categories from "@/components/BusComponents/Categories";
+import Tags from "@/components/BusComponents/Tags";
 
 import classNames from "classnames";
 import styles from "@/styles/layout.module.scss";
 
+import type { ICategories, IBlog } from "@/utils/ts.d.ts";
 interface IPageHeader {
-	detail?: Object;
+	detail?: IBlog;
 	title?: string;
 }
 
@@ -27,7 +32,7 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 			})}
 			id={styles["page-header"]}
 			style={{
-				backgroundImage: `url('https://p.zhheo.com/aAWBR820890481681098008701.png!cover')`,
+				backgroundImage: `url(${detail?.img})`,
 			}}
 		>
 			<nav
@@ -108,32 +113,22 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 						<img
 							className='nolazyload entered loading'
 							id='post-cover'
-							src='https://p.zhheo.com/eJpUol25390481680492353131.png!cover'
+							src={detail?.img}
 							alt='cover'
 							data-ll-status='loading'
 						/>
 					</div>
 					<div id={styles["header-info"]}>
 						<div className={styles["info-tags"]}>
-							<a href='#' title='原创' className={styles["tags-item"]}>
-								tag1
-							</a>
-							<a href='#' title='原创' className={styles["tags-item"]}>
-								tag2
-							</a>
-							<div className={styles["tags-share-list"]}>
-								<a href='#' title='原创' className={styles["tags-share"]}>
-									tag2
-								</a>
-								<a href='#' title='原创' className={styles["tags-share"]}>
-									tag2
-								</a>
-							</div>
+							{detail?.categories?.map((i: ICategories) => {
+								return <Categories key={i?.id} name={i?.name} />;
+							})}
+							{detail?.tags?.map((i: ICategories) => {
+								return <Tags key={i?.id} name={i?.name} small />;
+							})}
 						</div>
-						<h1 id={styles["header-title"]}>
-							即时AI文字生成设计上手体验：不太能取代设计师，而是一个头脑风暴的好工具
-						</h1>
-						<div id={styles["header-meta"]}>浏览量: 1.1k</div>
+						<h1 id={styles["header-title"]}>{detail?.title}</h1>
+						{/* <div id={styles["header-meta"]}>浏览量: 1.1k</div> */}
 					</div>
 					<section className='main-hero-waves-area waves-area'>
 						<svg

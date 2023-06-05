@@ -13,7 +13,11 @@ const MarkdownMenu = ({ markdownContent }: { markdownContent: string }) => {
 		// const parser = new DOMParser();
 		// const doc = parser.parseFromString(markdownContent, "text/html");
 		// const headingElements = Array.from(doc.querySelectorAll("h1"));
-		const headingElements = Array.from(document.querySelectorAll("h1"));
+		const headingElements = Array.from(
+			(
+				document.getElementById("article-container") as Element
+			).querySelectorAll("h1")
+		);
 		const handleScroll = () => {
 			const scrollTop = window.scrollY || window.pageYOffset;
 			let active = "";

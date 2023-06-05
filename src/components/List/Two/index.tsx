@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import Image from "next/legacy/image";
 import Categories from "@/components/BusComponents/Categories";
 import Tags from "@/components/BusComponents/Tags";
@@ -11,8 +13,14 @@ interface IBlogDetails {
 }
 
 const ListTwo = ({ detail }: IBlogDetails) => {
+	const router = useRouter();
 	return (
-		<div className={styles["list-multiple"]}>
+		<div
+			className={styles["list-multiple"]}
+			onClick={() => {
+				router.push(detail?.href);
+			}}
+		>
 			<div className={styles["list-cover"]}>
 				<a href={detail?.href} title={detail?.title}>
 					<Image

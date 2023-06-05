@@ -12,4 +12,5 @@ export interface IBlog {
   img: string;
   createTime: string;
   id: number;
+  markdownPath: string;
 }
