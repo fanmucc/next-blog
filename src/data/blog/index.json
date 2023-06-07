@@ -12,7 +12,7 @@
   },
   {
     "title": "第二篇文章",
-    "categories": [1],
+    "categories": [1,5],
     "tags": [1, 2],
     "href": "/blog/2",
     "themeColor": "",
@@ -23,7 +23,7 @@
   },
   {
     "title": "第三篇文章",
-    "categories": [1],
+    "categories": [1,8],
     "tags": [1, 2],
     "href": "/blog/3",
     "themeColor": "",
@@ -34,7 +34,7 @@
   },
   {
     "title": "第四篇文章",
-    "categories": [1],
+    "categories": [1,2],
     "tags": [1, 2],
     "href": "/blog/3",
     "themeColor": "",
