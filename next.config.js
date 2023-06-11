@@ -22,6 +22,7 @@ const nextConfig = {
 	// 	},
 	// ],
 	// },
+	webpack5: true,
 	webpack(config) {
 		const sassRules = config.module.rules
 			.find((rule) => typeof rule.oneOf === "object")

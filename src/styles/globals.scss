@@ -54,8 +54,7 @@
   --toc-link-color: #666261;
   --card-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
   --card-hover-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.15);
-  // --blog-main: #425AEF !important;
-  --up-fill: '/png/up_fill.png'
+  --blog-main: #425AEF !important;
 }
 
 
@@ -100,7 +99,6 @@
   --style-border-hover-always: 1px solid var(--blog-main);
   --style-border-dashed: 1px dashed var(--blog-theme-op);
   --style-border-forever: 2px solid var(--blog-main);
-  --up-fill: '/png/up_fill.png'
 }
 
 [data-theme=dark] {
@@ -144,7 +142,6 @@
   --style-border-hover-always: 1px solid var(--blog-theme);
   --style-border-dashed: 1px dashed var(--blog-theme-op);
   --style-border-forever: 2px solid var(--blog-lighttext);
-  --up-fill: '/png/up_fill.png'
 }
 
 [data-theme=dark] {
@@ -182,7 +179,6 @@
   --hlnumber-color: rgba(255, 255, 255, 0.4);
   --hlscrollbar-bg: #1f1f1f;
   --hlexpand-bg: linear-gradient(180deg, rgba(23, 23, 23, 0.6), rgba(23, 23, 23, 0.9));
-  --up-fill: '/png/up_fill.png'
 }
 
 /* 用于检测用户是否有将系统的主题色设置为亮色或者暗色,dark 暗色  */
@@ -230,7 +226,6 @@
     --style-border-hover-always: 1px solid var(--blog-main);
     --style-border-dashed: 1px dashed var(--blog-theme-op);
     --style-border-forever: 2px solid var(--blog-main);
-    --up-fill: '/png/up_fill.png'
   }
 }
 
@@ -278,7 +273,6 @@
     --style-border-hover-always: 1px solid var(--blog-theme);
     --style-border-dashed: 1px dashed var(--blog-theme-op);
     --style-border-forever: 2px solid var(--blog-lighttext);
-    --up-fill: '/png/up_fill.png'
   }
 }
 
@@ -388,8 +382,8 @@ img {
   border-style: none;
 }
 
-ul li {list-style-type:none}
-ol li {list-style-type:none}
+ul li {list-style-type:none;}
+ol li {list-style-type:none;}
 
 sub, sup {
   font-size: 75%;
@@ -553,7 +547,7 @@ sub, sup {
   transform: rotate(10deg) translateY(-10%) scale(2);
 }
 
-.coverdiv:after {
+.coverdiv::after {
   position: absolute;
   content: '';
   width: 100%;

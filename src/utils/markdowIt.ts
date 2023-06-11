@@ -91,12 +91,12 @@ export default function renderMarkdown(markdown: string): string {
   // 修改li标签
   // 自定义li标签渲染
   md.renderer.rules.list_item_open = function (tokens, idx, options, env, self) {
-    let token = tokens[idx]
-    return `<li start='${token?.info}.' markup='${token?.markup}'><p>`
+    let token = tokens[idx];
+    return `<li start='${token?.info}.' markup='${token?.markup}'><p>`;
   }
 
   md.renderer.rules.list_item_close = function (tokens, idx, options, env, self) {
-    return '</p></li>\n'
+    return '</p></li>\n';
   }
 
   // 自定义图片
@@ -108,16 +108,16 @@ export default function renderMarkdown(markdown: string): string {
     return `<p>
       <img src='${src}' data-lazy-src='${src}' alt='${alt}' title='${alt}'/>
       <div class="markdown-img-alt">${alt}</div>
-    </p>`
+    </p>`;
   }
 
   // 自定义table
   md.renderer.rules.table_open = function (tokens: any, idx, options, env, self) {
-    return '<div class="table-box"><table>'
+    return '<div class="table-box"><table>';
   }
 
   md.renderer.rules.table_close = function (tokens: any, idx, options, env, self) {
-    return '</table></div>'
+    return '</table></div>';
   }
 
   // 代码高亮
@@ -132,16 +132,16 @@ export default function renderMarkdown(markdown: string): string {
       // 获取代码块的语言
       const lang = token.info.trim();
       const code = token.content.trim();
-      const codeLenth = new Array((token?.map?.[1] - token?.map?.[0] - 2) || 0).fill(1)
+      const codeLenth = new Array((token?.map?.[1] - token?.map?.[0] - 2) || 0).fill(1);
 
       // 如果指定了代码块的语言
       if (lang) {
         // 使用 highlight.js 库来高亮代码
         const result = hljs.highlight(code, { language: lang });
 
-        let lineDemo = ''
+        let lineDemo = '';
         codeLenth.forEach((i, index) => {
-          lineDemo += `\n<span class="line">${index + 1}</span>`
+          lineDemo += `\n<span class="line">${index + 1}</span>`;
         })
 
         // 返回自定义的代码块渲染结果

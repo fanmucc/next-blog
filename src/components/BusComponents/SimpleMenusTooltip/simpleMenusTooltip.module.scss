@@ -43,22 +43,6 @@
     animation: all 0.3s ease 0.1s 1 normal both running sub_menus;
     border-radius: 5px;
     white-space: nowrap;
-    // &::after {
-    //   position: absolute;
-    //   top: -60px;
-    //   left: 0px;
-    //   width: 50%;
-    //   height: 60px;
-    //   content: "";
-    // }
-    // &::before {
-    //   position: absolute;
-    //   top: -8px;
-    //   left: 0px;
-    //   width: 100%;
-    //   height: 20px;
-    //   content: "";
-    // }
   }
 
   &:hover {

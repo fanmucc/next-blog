@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import SimpleMenusTooltip from "@/components/BusComponents/SimpleMenusTooltip";
 import Categories from "@/components/BusComponents/Categories";
 import Tags from "@/components/BusComponents/Tags";
+import Link from "next/link";
+import Image from "next/image";
 
 import classNames from "classnames";
 import styles from "@/styles/layout.module.scss";
@@ -44,9 +46,9 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 			>
 				<div id={styles["nav-group"]}>
 					<div className={styles["nav-left"]}>
-						<a className={styles["back-home"]} href='/'>
+						<Link className={styles["back-home"]} href='/'>
 							<span>Yan</span>
-						</a>
+						</Link>
 					</div>
 					<div className={styles["nav-content"]}>
 						<div className={styles["nav-menus"]}>
@@ -54,19 +56,19 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 								<SimpleMenusTooltip title='文章'>
 									<ul className={styles["item-tooltip-content"]}>
 										<li>
-											<a href='/blog/list'>
+											<Link href='/blog/list'>
 												<span>全部文章</span>
-											</a>
+											</Link>
 										</li>
 										<li>
-											<a href='/categories'>
+											<Link href='/categories'>
 												<span>全部分类</span>
-											</a>
+											</Link>
 										</li>
 										<li>
-											<a href='/tags'>
+											<Link href='/tags'>
 												<span>全部标签</span>
-											</a>
+											</Link>
 										</li>
 									</ul>
 								</SimpleMenusTooltip>
@@ -91,13 +93,14 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 						</div>
 						{scrollStatus && (
 							<div className={styles["nav-title"]}>
-								<a
+								<Link
+									href=''
 									id='page-name-text'
 									// onClick='btf.scrollToDest(0, 500)'
 									data-pjax-state=''
 								>
 									{title}
-								</a>
+								</Link>
 							</div>
 						)}
 					</div>
@@ -110,7 +113,9 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 			{detail && (
 				<>
 					<div className='coverdiv loaded' id='coverdiv'>
-						<img
+						<Image
+							width={800}
+							height={300}
 							className='nolazyload entered loading'
 							id='post-cover'
 							src={detail?.img}
@@ -134,7 +139,6 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 						<svg
 							className='waves-svg'
 							xmlns='http://www.w3.org/2000/svg'
-							xlink='http://www.w3.org/1999/xlink'
 							viewBox='0 24 150 28'
 							preserveAspectRatio='none'
 							shapeRendering='auto'

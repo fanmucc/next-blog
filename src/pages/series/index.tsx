@@ -1,6 +1,6 @@
 import Layout from "@/Layout";
 import Head from "next/head";
-import List from "@/components/List";
+import List from "@/components/List/Series";
 import Author from "@/components/Author";
 
 import type { AppProps } from "next/app";
@@ -36,7 +36,7 @@ const SeriesPage = (props: Iprops) => {
 							<sup>111</sup>
 						</div>
 						<div className={styles["blog-content"]}>
-							<List.ListSeries />
+							<List />
 						</div>
 					</div>
 					<div className='slide-box-content'>

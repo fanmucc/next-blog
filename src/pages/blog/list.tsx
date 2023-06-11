@@ -2,7 +2,7 @@ import { get } from "@/utils/axios";
 
 import Layout from "@/Layout";
 import Head from "next/head";
-import List from "@/components/List";
+import List from "@/components/List/One";
 import Author from "@/components/Author";
 
 import type { AppProps } from "next/app";
@@ -40,7 +40,7 @@ const BlogList = ({ list }: Iprops) => {
 						</div>
 						<div className={styles["blog-content"]}>
 							{list?.map((i: IBlog) => {
-								return <List.ListOne key={i?.id} detail={i} />;
+								return <List key={i?.id} detail={i} />;
 							})}
 						</div>
 					</div>

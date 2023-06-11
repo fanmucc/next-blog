@@ -1,7 +1,7 @@
 export interface ICategories {
   id: number;
   name: string;
-}
+};
 
 export interface IBlog {
   title: string;
@@ -13,4 +13,4 @@ export interface IBlog {
   createTime: string;
   id: number;
   markdownPath: string;
-}
+};

@@ -10,19 +10,19 @@ const request = (axiosConfig: AxiosRequestConfig<any>) => {
 
   // 请求拦截
   service.interceptors.request.use(config => {
-    return config
+    return config;
   }, error => {
-    return Promise.reject(error)
+    return Promise.reject(error);
   })
 
   // 相应拦截
   service.interceptors.response.use(response => {
-    return Promise.resolve(response?.data)
+    return Promise.resolve(response?.data);
   }, error => {
-    return Promise.reject(error)
+    return Promise.reject(error);
   })
 
-  return service(axiosConfig)
+  return service(axiosConfig);
 }
 
 export const get = (url: string, params?: any, config?: any) => {
@@ -31,7 +31,7 @@ export const get = (url: string, params?: any, config?: any) => {
     url: url,
     params: params,
     ...config
-  })
+  });
 }
 
-export default request
+export default request;

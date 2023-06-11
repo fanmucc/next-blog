@@ -26,9 +26,9 @@ export const getSpecificFile = async (fs: any, path: any, dirPath: string): Prom
       encoding: "utf-8",
     })
   } catch (err) {
-    return []
+    return [];
   }
-  return JSON.parse(fileData)
+  return JSON.parse(fileData);
 }
 
 export const getSpecificFileMarkdown = async (fs: any, path: any, dirPath: string): Promise<any> => {

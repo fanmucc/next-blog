@@ -11,7 +11,7 @@ import Head from "next/head";
 import Layout from "@/Layout";
 import type { AppProps } from "next/app";
 
-import List from "../components/List";
+import ListTwo from "@/components/List/Two";
 import Author from "@/components/Author";
 
 import type { IBlog } from "@/utils/ts.d.ts";
@@ -44,7 +44,7 @@ export default function Home({ list }: Iprops) {
 				<div className={classNames(styles["index"], "slide-box")}>
 					<div className={classNames(styles["index-right"])}>
 						{list?.map((i: IBlog) => {
-							return <List.ListTwo key={i?.id} detail={i} />;
+							return <ListTwo key={i?.id} detail={i} />;
 						})}
 					</div>
 					<div>
