@@ -42,7 +42,7 @@ const nextConfig = {
 						},
 				  }
 				: rule
-		);
+		);		
 		return config;
 	},
 	sassOptions: {
