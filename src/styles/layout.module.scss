@@ -95,42 +95,6 @@
             justify-content: center;
             height: 100%;
 
-            .item-tooltip-content {
-              display: flex;
-              align-items: center;
-              li {
-                padding: 0 10px;
-                color: var(--blog-fontcolor);
-                border-radius: 100px;
-                transition: 0.3s;
-
-                &:hover {
-                  padding: 0 14px;
-                  background: var(--blog-main);
-                  color: var(--blog-white);
-                  transition: 0.3s;
-
-                  a {
-                    span {
-                      color: var(--blog-white);
-                    }
-                  }
-                }
-
-                a {
-                  letter-spacing: 0rem;
-                  display: flex;
-                  align-items: center;
-                  border-radius: 100px;
-                  padding: 0.3rem 0.8rem;
-                  width: 100%;
-                  color: var(--blog-fontcolor) !important;
-                  text-shadow: none !important;
-                }
-
-              }
-            }
-
             .nav_item {
               margin: 0 .5rem;
               display: block;

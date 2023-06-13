@@ -3,7 +3,6 @@
     opacity: 0;
     transform: translateY(10px);
   }
-
   100% {
     opacity: 1;
     filter: none;
@@ -11,8 +10,7 @@
   }
 }
 
-
-.menus_items_box {
+.menus-items-box {
   position: relative;
   display: flex;
   align-items: center;
@@ -20,7 +18,7 @@
   justify-content: center;
   height: 100%;
 
-  .nav_item {
+  .menus-items {
     margin: 0 .5rem;
     display: block;
     font-size: 1.15em;
@@ -30,29 +28,69 @@
     color: var(--blog-fontcolor);
     text-shadow: none;
     transition: 0.3s;
-   
   }
 
-  .children {
+  .children-box {
     position: absolute;
     display: none;
     margin-top: 8px;
     padding: 0px;
     background-color: var(--sidebar-bg);
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 20px -4px;
-    animation: all 0.3s ease 0.1s 1 normal both running sub_menus;
     border-radius: 5px;
     white-space: nowrap;
+
+    .item-tooltip-content {
+      display: flex;
+      align-items: center;
+      letter-spacing: normal;
+      font-weight: 400;
+      
+      li {
+        padding: 0 10px;
+        color: var(--blog-fontcolor);
+        border-radius: 100px;
+        transition: 0.3s;
+
+        a {
+          letter-spacing: 0rem;
+          display: flex;
+          align-items: center;
+          border-radius: 100px;
+          padding: 0 0.5rem !important;
+          font-weight: 400 !important;
+          height: auto !important;
+          width: 100%;
+          color: var(--blog-fontcolor) !important;
+          text-shadow: none !important;
+        }
+
+        &:hover {
+          padding: 0 14px;
+          background: var(--blog-main);
+          color: var(--blog-white);
+          transition: 0.3s;
+
+          a {
+            span {
+              color: var(--blog-white);
+            }
+          }
+        }
+
+      }
+    }
+
   }
 
   &:hover {
-    .nav_item { 
+    .menus-items { 
       background: var(--blog-main);
       color: var(--blog-white);
       transition: 0.3s;
     }
 
-    .children {
+    .children-box {
       display: block;
       padding: 6px 4px 8px 4px;
       border-radius: 100px;
@@ -73,5 +111,4 @@
       }
     }
   }
-
 }

@@ -1,4 +1,4 @@
-import request from "@/utils/axios";
+import { get } from "@/utils/axios";
 
 import Layout from "@/Layout";
 import Head from "next/head";
@@ -43,15 +43,12 @@ const CategoriesPage = ({ categories }: ICategoriesPage) => {
 export default CategoriesPage;
 
 export const getContent = async () => {
-	const data = await request({
-		url: "/api/mock/categories",
-		method: "GET",
-	});
+	const data = await get("/api/mock/categories");
 	return data;
 };
 
 // 不需要频繁请求
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
 	return {
 		props: {
 			categories: await getContent(),

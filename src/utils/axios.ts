@@ -29,7 +29,7 @@ export const get = (url: string, params?: any, config?: any) => {
   return request({
     method: 'get',
     url: url,
-    params: params,
+    params: params || {},
     ...config
   });
 }

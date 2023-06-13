@@ -43,9 +43,10 @@ export default function Home({ list }: Iprops) {
 			<Layout title='严凡木 - 分享设计与科技生活'>
 				<div className={classNames(styles["index"], "slide-box")}>
 					<div className={classNames(styles["index-right"])}>
-						{list?.map((i: IBlog) => {
+						123333
+						{/* {list?.map((i: IBlog) => {
 							return <ListTwo key={i?.id} detail={i} />;
-						})}
+						})} */}
 					</div>
 					<div>
 						<Author />
@@ -56,18 +57,18 @@ export default function Home({ list }: Iprops) {
 	);
 }
 
-export const getContent = async () => {
-	const data = await get("/api/mock/blog");
-	return data;
-};
+// export const getContent = async () => {
+// 	const data = await get("/api/mock/blog");
+// 	return data || [];
+// };
 
-export const getStaticProps = async () => {
-	return {
-		props: {
-			list: await getContent(),
-		},
-	};
-};
+// export const getServerSideProps = async () => {
+// 	return {
+// 		props: {
+// 			list: await getContent(),
+// 		},
+// 	};
+// };
 
 // 执行时机和位置：
 

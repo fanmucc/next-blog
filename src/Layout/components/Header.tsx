@@ -16,6 +16,21 @@ interface IPageHeader {
 	title?: string;
 }
 
+let menuItem = [
+	{
+		href: "/blog/list",
+		title: "全部文章",
+	},
+	{
+		href: "/categories",
+		title: "全部分类",
+	},
+	{
+		href: "/tags",
+		title: "全部标签",
+	},
+];
+
 const PageHeader = ({ detail, title }: IPageHeader) => {
 	const [scrollStatus, setScrollStatus] = useState(false);
 	useEffect(() => {
@@ -53,42 +68,9 @@ const PageHeader = ({ detail, title }: IPageHeader) => {
 					<div className={styles["nav-content"]}>
 						<div className={styles["nav-menus"]}>
 							<div className={styles["menus_items"]}>
-								<SimpleMenusTooltip title='文章'>
-									<ul className={styles["item-tooltip-content"]}>
-										<li>
-											<Link href='/blog/list'>
-												<span>全部文章</span>
-											</Link>
-										</li>
-										<li>
-											<Link href='/categories'>
-												<span>全部分类</span>
-											</Link>
-										</li>
-										<li>
-											<Link href='/tags'>
-												<span>全部标签</span>
-											</Link>
-										</li>
-									</ul>
-								</SimpleMenusTooltip>
+								<SimpleMenusTooltip title='文章' list={menuItem} />
 								<SimpleMenusTooltip title='系列' href='/series' />
 								<SimpleMenusTooltip title='我的' />
-								{/* <div className={styles["menus_items_children"]}>
-									<a className={styles["nav_item"]} href='/blog/list'>
-										<span>系列</span>
-									</a>
-								</div> */}
-								{/* <div className={styles["menus_items_children"]}>
-									<a className={styles["nav_item"]} href='/categories'>
-										<span>我的</span>
-									</a>
-								</div> */}
-								{/* <div className={styles["menus_items_children"]}>
-									<a className={styles["nav_item"]} href='/tags'>
-										<span>标签</span>
-									</a>
-								</div> */}
 							</div>
 						</div>
 						{scrollStatus && (

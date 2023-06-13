@@ -22,7 +22,6 @@ const nextConfig = {
 	// 	},
 	// ],
 	// },
-	webpack5: true,
 	webpack(config) {
 		const sassRules = config.module.rules
 			.find((rule) => typeof rule.oneOf === "object")
@@ -42,12 +41,13 @@ const nextConfig = {
 						},
 				  }
 				: rule
-		);		
+		);
 		return config;
 	},
 	sassOptions: {
 		includePaths: [path.join(__dirname, "styles")],
 	},
+	distDir: "build",
 };
 
 module.exports = nextConfig;

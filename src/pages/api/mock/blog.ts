@@ -24,23 +24,27 @@ export default async function blog(
   req: NextApiRequest,
   res: NextApiResponse<IBlog>
 ) {
-  const fs = require("fs");
-  const path = require("path");
-  let data = await getSpecificFile(fs, path, "./src/data/blog/index.json");
-  let newData = data?.map((i: IBlog) => {
-    let newCate = i?.categories?.map((cateId: number) => {
-      let cateFind = categories?.find((i: ICategories) => i?.id === cateId);
-      return cateFind;
-    }).filter((i) => i?.id)
-    let newTags = i?.tags?.map((tagsId: number) => {
-      let tagsFind = tags?.find((i: ICategories) => i?.id === tagsId);
-      return tagsFind;
-    }).filter((i) => i?.id);
-    return {
-      ...i,
-      categories: newCate,
-      tags: newTags
-    };
-  });
-  res.status(200).json(newData);
+  try {
+    const fs = require("fs");
+    const path = require("path");
+    let data = await getSpecificFile(fs, path, "./src/data/blog/index.json");
+    let newData = data?.map((i: IBlog) => {
+      let newCate = i?.categories?.map((cateId: number) => {
+        let cateFind = categories?.find((i: ICategories) => i?.id === cateId);
+        return cateFind;
+      }).filter((i) => i?.id)
+      let newTags = i?.tags?.map((tagsId: number) => {
+        let tagsFind = tags?.find((i: ICategories) => i?.id === tagsId);
+        return tagsFind;
+      }).filter((i) => i?.id);
+      return {
+        ...i,
+        categories: newCate,
+        tags: newTags
+      };
+    });
+    res.status(200).json(newData);
+  } catch (err) {
+    res.status(200).json([] as any);
+  }
 }

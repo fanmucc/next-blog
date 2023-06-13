@@ -57,10 +57,10 @@ export default BlogList;
 
 export const getContent = async () => {
 	const data = await get("/api/mock/blog");
-	return data;
+	return data || [];
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
 	return {
 		props: {
 			list: await getContent(),

@@ -10,10 +10,26 @@
   }
 }
 
+@keyframes sub_menus {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: translateY(0px);
+  }
+}
+
 .slide-box {
   animation: slide-in 0.6s 0.2s backwards;
 }
 
 .slide-box-content {
   animation: slide-in 0.6s 0.3s backwards;
+}
+
+.menus-animation {
+  animation: all 0.3s ease 0.1s 1 normal both running sub_menus;
 }
