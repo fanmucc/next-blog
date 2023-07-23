@@ -47,6 +47,7 @@ const TagsPage = ({ tags }: ITagsPage) => {
 export default TagsPage;
 
 export const getContent = async () => {
+	// 这里直接将获取到的数据进行return
 	return  await get("/api/mock/tags");
 };
 
