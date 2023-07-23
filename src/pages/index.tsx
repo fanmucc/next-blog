@@ -10,6 +10,7 @@ import type {
 import Head from "next/head";
 import Layout from "@/Layout";
 import type { AppProps } from "next/app";
+import { createTheme, NextUIProvider, Text } from "@nextui-org/react";
 
 import ListTwo from "@/components/List/Two";
 import Author from "@/components/Author";
@@ -43,11 +44,11 @@ export default function Home({ list }: Iprops) {
 			<Layout title='严凡木 - 分享设计与科技生活'>
 				<div className={classNames(styles["index"], "slide-box")}>
 					<div className={classNames(styles["index-right"])}>
-						123333
-						{/* {list?.map((i: IBlog) => {
+						{list?.map((i: IBlog) => {
 							return <ListTwo key={i?.id} detail={i} />;
-						})} */}
+						})}
 					</div>
+					<Text css={{ background: "$myColor" }}>111121212121212</Text>
 					<div>
 						<Author />
 					</div>
@@ -57,18 +58,18 @@ export default function Home({ list }: Iprops) {
 	);
 }
 
-// export const getContent = async () => {
-// 	const data = await get("/api/mock/blog");
-// 	return data || [];
-// };
+export const getContent = async () => {
+	const data = await get("/api/mock/blog");
+	return data || [];
+};
 
-// export const getServerSideProps = async () => {
-// 	return {
-// 		props: {
-// 			list: await getContent(),
-// 		},
-// 	};
-// };
+export const getServerSideProps = async () => {
+	return {
+		props: {
+			list: await getContent(),
+		},
+	};
+};
 
 // 执行时机和位置：
 

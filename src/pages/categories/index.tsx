@@ -32,7 +32,9 @@ const CategoriesPage = ({ categories }: ICategoriesPage) => {
 					)}
 				>
 					{categories?.map((i: any) => {
-						return <Tags key={i?.id} name={i?.name} num={i?.num || 0} />;
+						return (
+							<Tags key={i?._id} name={i?.name} num={i?.articles_num || 0} />
+						);
 					})}
 				</div>
 			</Layout>

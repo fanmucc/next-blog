@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import Image from "next/legacy/image";
+import { Image } from "@nextui-org/react";
 import Categories from "@/components/BusComponents/Categories";
 import Tags from "@/components/BusComponents/Tags";
 
@@ -29,7 +29,8 @@ const ListTwo = ({ detail }: IBlogDetails) => {
 						height={450}
 						src={detail?.img}
 						alt={detail?.title}
-						loading='lazy'
+						maxDelay={1000}
+						objectFit='cover'
 					/>
 					{/* <img
 						className={styles["img-bg"]}

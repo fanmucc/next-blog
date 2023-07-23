@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "blog": "node src/npmRunScript/blog.js"
   },
   "dependencies": {
+    "@nextui-org/react": "^1.0.0-beta.13",
     "@sidsbrmnn/scrollspy": "^1.1.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
@@ -23,7 +25,9 @@
     "markdown-it-attrs": "^4.1.6",
     "markdown-it-container": "^3.0.0",
     "markdown-it-highlightjs": "^4.0.1",
+    "mongoose": "^7.3.1",
     "next": "13.3.0",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"

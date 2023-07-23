@@ -42,6 +42,8 @@ const nextConfig = {
 				  }
 				: rule
 		);
+
+		config.resolve.alias["@"] = path.resolve(__dirname);
 		return config;
 	},
 	sassOptions: {

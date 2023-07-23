@@ -15,6 +15,8 @@ interface ITagsPage extends AppProps {
 }
 
 const TagsPage = ({ tags }: ITagsPage) => {
+	console.log(tags, "===");
+
 	return (
 		<>
 			<Head>
@@ -32,7 +34,9 @@ const TagsPage = ({ tags }: ITagsPage) => {
 					)}
 				>
 					{tags?.map((i: any) => {
-						return <Tags key={i?.id} name={i?.name} num={i?.num || 0} />;
+						return (
+							<Tags key={i?._id} name={i?.name} num={i?.articles_num || 0} />
+						);
 					})}
 				</div>
 			</Layout>
