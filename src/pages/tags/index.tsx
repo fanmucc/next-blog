@@ -47,8 +47,7 @@ const TagsPage = ({ tags }: ITagsPage) => {
 export default TagsPage;
 
 export const getContent = async () => {
-	const data = await get("/api/mock/tags");
-	return data;
+	return  await get("/api/mock/tags");
 };
 
 // 不需要频繁请求
